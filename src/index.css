@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-semibold tracking-tightest;
+  }
+
+  /* Keep sticky-header clearance for in-page anchors. */
+  :target {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-brand;
+  }
+
+  .rich-text p {
+    @apply mb-4 leading-relaxed text-black/70;
+  }
+
+  .rich-text p:last-child {
+    @apply mb-0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}

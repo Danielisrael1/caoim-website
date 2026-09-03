@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# Original, unoptimised photos / video (web-ready copies live in public/media)
+_source-media
+.env
+.env.*
+!.env.example
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
