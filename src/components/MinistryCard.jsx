@@ -5,7 +5,7 @@ export default function MinistryCard({ ministry, to }) {
   return (
     <Link
       to={to || `/ministries#${ministry.slug}`}
-      className="group flex flex-col bg-white transition-shadow duration-200 hover:shadow-xl"
+      className="group flex h-full flex-col bg-white transition-shadow duration-200 hover:shadow-xl"
     >
       <div className="aspect-[4/3] overflow-hidden bg-paper">
         {ministry.image ? (

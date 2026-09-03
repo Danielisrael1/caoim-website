@@ -4,10 +4,11 @@
 export const CONTENT_QUERY = /* groq */ `{
   "settings": *[_type == "siteSettings"][0]{
     name, shortName, campus, tagline, taglineRef, hero,
-    contact, social, youtube, serviceTimes, about, values, beliefs, giving
+    contact, social, youtube, serviceTimes, about, values, beliefs, giving,
+    "leadPastors": leadPastors{ names, role, bio, "photo": photo.asset->url }
   },
   "leadership": *[_type == "leader"] | order(order asc){
-    name, role, bio, "photo": photo.asset->url
+    name, department, bio, "photo": photo.asset->url
   },
   "ministries": *[_type == "ministry"] | order(order asc){
     "slug": slug.current, name, audience, summary, meets, details,

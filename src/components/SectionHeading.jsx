@@ -1,3 +1,5 @@
+import Reveal from './Reveal.jsx'
+
 export default function SectionHeading({
   eyebrow,
   title,
@@ -12,10 +14,10 @@ export default function SectionHeading({
   const eyebrowColor = tone === 'light' ? 'text-gold' : 'text-brand'
 
   return (
-    <div className={`max-w-2xl ${alignCls} ${className}`}>
+    <Reveal className={`max-w-2xl ${alignCls} ${className}`}>
       {eyebrow && <p className={`eyebrow ${eyebrowColor}`}>{eyebrow}</p>}
       <h2 className={`mt-3 text-3xl font-bold leading-tight sm:text-4xl ${titleColor}`}>{title}</h2>
       {intro && <p className={`mt-4 text-lg leading-relaxed ${introColor}`}>{intro}</p>}
-    </div>
+    </Reveal>
   )
 }

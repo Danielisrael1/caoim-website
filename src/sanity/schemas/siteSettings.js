@@ -70,6 +70,17 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'leadPastors',
+      title: 'Lead pastors (featured card)',
+      type: 'object',
+      fields: [
+        { name: 'names', type: 'string', title: 'Names' },
+        { name: 'role', type: 'string', title: 'Role', initialValue: 'Lead Pastors' },
+        { name: 'photo', type: 'image', title: 'Photo', options: { hotspot: true } },
+        { name: 'bio', type: 'array', of: [{ type: 'text', rows: 3 }], title: 'Bio paragraphs' },
+      ],
+    }),
+    defineField({
       name: 'about',
       title: 'About',
       type: 'object',

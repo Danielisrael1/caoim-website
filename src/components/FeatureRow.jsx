@@ -1,4 +1,5 @@
 import Button from './Button.jsx'
+import Reveal from './Reveal.jsx'
 
 /**
  * Alternating image / text band, styled after the reference site's content rows.
@@ -28,15 +29,17 @@ export default function FeatureRow({
   return (
     <section className={toneCls}>
       <div className="container-page grid items-center gap-10 py-16 md:grid-cols-2 md:py-24 lg:gap-16">
-        <div className={imageSide === 'right' ? 'md:order-2' : ''}>
-          <img
-            src={image}
-            alt={imageAlt}
-            loading="lazy"
-            className="aspect-[4/3] w-full object-cover"
-          />
-        </div>
-        <div className={imageSide === 'right' ? 'md:order-1' : ''}>
+        <Reveal variant="zoom" className={imageSide === 'right' ? 'md:order-2' : ''}>
+          <div className="overflow-hidden">
+            <img
+              src={image}
+              alt={imageAlt}
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover"
+            />
+          </div>
+        </Reveal>
+        <Reveal delay={120} className={imageSide === 'right' ? 'md:order-1' : ''}>
           {eyebrow && <p className={`eyebrow ${eyebrowCls}`}>{eyebrow}</p>}
           <h2 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">{title}</h2>
           <div className={`mt-5 space-y-4 text-lg leading-relaxed ${bodyCls}`}>{children}</div>
@@ -65,7 +68,7 @@ export default function FeatureRow({
               )}
             </div>
           )}
-        </div>
+        </Reveal>
       </div>
     </section>
   )

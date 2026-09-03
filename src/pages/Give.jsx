@@ -1,10 +1,11 @@
 import { useSite } from '../content/ContentContext.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
+import Reveal from '../components/Reveal.jsx'
 
 function MobileMoneyCard({ method }) {
   return (
-    <div className="border border-black/10 bg-white p-6">
+    <div className="h-full border border-black/10 bg-white p-6">
       <div className="flex items-center justify-between gap-4">
         <h3 className="text-lg font-bold text-ink">{method.provider}</h3>
         <span className="bg-brand px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">
@@ -48,8 +49,10 @@ export default function Give() {
           intro="Use the merchant code for your provider, and enter your name as the reference so we can thank you and keep good records."
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {g.mobileMoney.map((m) => (
-            <MobileMoneyCard key={m.provider} method={m} />
+          {g.mobileMoney.map((m, i) => (
+            <Reveal key={m.provider} delay={i * 120} className="h-full">
+              <MobileMoneyCard method={m} />
+            </Reveal>
           ))}
         </div>
 

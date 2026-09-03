@@ -2,6 +2,7 @@ import { useSite } from '../content/ContentContext.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import FeatureRow from '../components/FeatureRow.jsx'
 import Button from '../components/Button.jsx'
+import Reveal from '../components/Reveal.jsx'
 
 export default function Ministries() {
   const site = useSite()
@@ -46,7 +47,7 @@ export default function Ministries() {
       ))}
 
       <section className="bg-brand text-white">
-        <div className="container-page py-20 text-center md:py-24">
+        <Reveal className="container-page py-20 text-center md:py-24">
           <h2 className="text-3xl font-bold sm:text-4xl">Not sure where to start?</h2>
           <p className="mx-auto mt-4 max-w-xl text-white/80">
             Come to a Sunday service and let us know you are new. We will help you find your place.
@@ -59,7 +60,7 @@ export default function Ministries() {
               See what&apos;s on
             </Button>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   )

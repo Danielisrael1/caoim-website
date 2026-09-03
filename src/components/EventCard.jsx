@@ -4,7 +4,7 @@ import { IconMapPin, IconClock, IconCalendar } from './icons.jsx'
 export default function EventCard({ event, featured = false }) {
   return (
     <article
-      className={`flex flex-col border p-6 ${
+      className={`flex h-full flex-col border p-6 ${
         featured ? 'border-brand bg-white' : 'border-black/10 bg-white'
       }`}
     >

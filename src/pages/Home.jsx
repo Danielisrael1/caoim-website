@@ -5,6 +5,7 @@ import FeatureRow from '../components/FeatureRow.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import Button from '../components/Button.jsx'
 import MinistryCard from '../components/MinistryCard.jsx'
+import Reveal from '../components/Reveal.jsx'
 import ServiceTimes from '../components/ServiceTimes.jsx'
 import MapEmbed from '../components/MapEmbed.jsx'
 import { IconPlay } from '../components/icons.jsx'
@@ -60,7 +61,7 @@ export default function Home() {
 
       {/* Mission statement */}
       <section className="bg-brand text-white">
-        <div className="container-page py-20 text-center md:py-28">
+        <Reveal className="container-page py-20 text-center md:py-28">
           <p className="eyebrow text-gold">Our mission</p>
           <p className="mx-auto mt-5 max-w-4xl text-2xl font-bold leading-snug sm:text-3xl md:text-4xl">
             {site.about.mission}
@@ -74,7 +75,7 @@ export default function Home() {
               What we believe
             </Button>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Get connected */}
@@ -87,40 +88,44 @@ export default function Home() {
             align="center"
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {site.ministries.map((m) => (
-              <MinistryCard key={m.slug} ministry={m} />
+            {site.ministries.map((m, i) => (
+              <Reveal key={m.slug} delay={i * 90} className="h-full">
+                <MinistryCard ministry={m} />
+              </Reveal>
             ))}
           </div>
-          <div className="mt-12 flex justify-center">
+          <Reveal className="mt-12 flex justify-center">
             <Button to="/ministries" variant="outlineDark">
               Explore all ministries
             </Button>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Sermons / watch */}
       <section className="bg-ink text-white">
         <div className="container-page grid items-center gap-10 py-20 md:grid-cols-2 md:py-28 lg:gap-16">
-          <a
-            href={site.youtube.channelUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="group relative block aspect-[4/3] overflow-hidden"
-          >
-            <img
-              src="/media/stage.jpg"
-              alt="CAOIM worship service"
-              loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <span className="absolute inset-0 flex items-center justify-center bg-black/30">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-brand">
-                <IconPlay className="h-6 w-6" />
+          <Reveal variant="zoom">
+            <a
+              href={site.youtube.channelUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="group relative block aspect-[4/3] overflow-hidden"
+            >
+              <img
+                src="/media/stage.jpg"
+                alt="CAOIM worship service"
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <span className="absolute inset-0 flex items-center justify-center bg-black/30">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-brand transition-transform duration-300 group-hover:scale-110">
+                  <IconPlay className="h-6 w-6" />
+                </span>
               </span>
-            </span>
-          </a>
-          <div>
+            </a>
+          </Reveal>
+          <Reveal delay={120}>
             <p className="eyebrow text-gold">Sermons</p>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Watch or catch up any time</h2>
             <p className="mt-4 text-lg leading-relaxed text-white/80">
@@ -133,7 +138,7 @@ export default function Home() {
                 Watch on YouTube
               </Button>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -142,24 +147,26 @@ export default function Home() {
         <div className="container-page grid gap-10 py-20 md:grid-cols-2 md:py-28 lg:gap-16">
           <div>
             <SectionHeading eyebrow="Plan your visit" title="Join us this week" />
-            <p className="mt-4 text-black/65">
-              Services last a little over an hour, with a warm welcome, worship and teaching for
-              every age. Children are cared for in CAOIM Kids during both Sunday services.
-            </p>
-            <ServiceTimes times={site.serviceTimes} className="mt-6" />
-            <p className="mt-6 text-sm text-black/65">
-              {site.contact.addressLines.join(', ')}. {site.contact.addressNote}
-            </p>
-            <div className="mt-6">
-              <Button
-                href={`https://www.google.com/maps?q=${encodeURIComponent(site.contact.mapQuery)}`}
-                external
-                variant="primary"
-                arrow
-              >
-                Get directions
-              </Button>
-            </div>
+            <Reveal delay={100}>
+              <p className="mt-4 text-black/65">
+                Services last a little over an hour, with a warm welcome, worship and teaching for
+                every age. Children are cared for in CAOIM Kids during both Sunday services.
+              </p>
+              <ServiceTimes times={site.serviceTimes} className="mt-6" />
+              <p className="mt-6 text-sm text-black/65">
+                {site.contact.addressLines.join(', ')}. {site.contact.addressNote}
+              </p>
+              <div className="mt-6">
+                <Button
+                  href={`https://www.google.com/maps?q=${encodeURIComponent(site.contact.mapQuery)}`}
+                  external
+                  variant="primary"
+                  arrow
+                >
+                  Get directions
+                </Button>
+              </div>
+            </Reveal>
           </div>
           <MapEmbed
             query={site.contact.mapQuery}
@@ -171,7 +178,7 @@ export default function Home() {
 
       {/* Give */}
       <section className="bg-gold">
-        <div className="container-page flex flex-col items-start gap-6 py-14 md:flex-row md:items-center md:justify-between">
+        <Reveal className="container-page flex flex-col items-start gap-6 py-14 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="text-2xl font-bold text-ink sm:text-3xl">Partner with the work</h2>
             <p className="mt-2 max-w-xl text-ink/75">
@@ -182,7 +189,7 @@ export default function Home() {
           <Button to="/give" variant="primary" arrow className="shrink-0">
             Ways to give
           </Button>
-        </div>
+        </Reveal>
       </section>
     </>
   )

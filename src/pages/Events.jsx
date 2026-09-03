@@ -4,6 +4,7 @@ import SectionHeading from '../components/SectionHeading.jsx'
 import EventCard from '../components/EventCard.jsx'
 import ServiceTimes from '../components/ServiceTimes.jsx'
 import Button from '../components/Button.jsx'
+import Reveal from '../components/Reveal.jsx'
 import { formatEventDate, upcomingEvents } from '../lib/format.js'
 
 export default function Events() {
@@ -24,13 +25,15 @@ export default function Events() {
       {featured && (
         <section className="border-b border-black/10">
           <div className="container-page grid items-center gap-10 py-16 md:grid-cols-2 md:py-20 lg:gap-16">
-            <img
-              src="/media/worship-hands.jpg"
-              alt=""
-              loading="lazy"
-              className="aspect-[4/3] w-full object-cover"
-            />
-            <div>
+            <Reveal variant="zoom" className="overflow-hidden">
+              <img
+                src="/media/worship-hands.jpg"
+                alt=""
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover"
+              />
+            </Reveal>
+            <Reveal delay={120}>
               <p className="eyebrow">Don&apos;t miss</p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">{featured.title}</h2>
               <p className="mt-4 text-lg text-black/65">{featured.summary}</p>
@@ -39,7 +42,7 @@ export default function Events() {
                 {featured.time ? ` · ${featured.time}` : ''}
               </p>
               <p className="text-black/60">{featured.location}</p>
-            </div>
+            </Reveal>
           </div>
         </section>
       )}
@@ -48,8 +51,10 @@ export default function Events() {
         <SectionHeading eyebrow="Calendar" title="Upcoming" />
         {rest.length > 0 ? (
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {rest.map((e) => (
-              <EventCard key={e.slug || e.title} event={e} />
+            {rest.map((e, i) => (
+              <Reveal key={e.slug || e.title} delay={(i % 3) * 80} className="h-full">
+                <EventCard event={e} />
+              </Reveal>
             ))}
           </div>
         ) : (

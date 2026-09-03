@@ -42,8 +42,47 @@
   }
 }
 
+/* Scroll-reveal: elements start hidden, `.is-visible` (added by <Reveal>) shows them. */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-zoom {
+    opacity: 0;
+    transform: scale(1.04);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-zoom.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
+  .animate-marquee,
+  .animate-fade-up,
+  .animate-kenburns {
+    animation: none !important;
+  }
+
+  .reveal,
+  .reveal-zoom {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

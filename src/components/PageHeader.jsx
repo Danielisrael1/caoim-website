@@ -10,18 +10,22 @@ export default function PageHeader({ eyebrow, title, intro, image }) {
           <img
             src={image}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full origin-center animate-kenburns object-cover"
             loading="eager"
           />
           <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
         </>
       )}
       <div className="container-page relative py-16 md:py-24">
-        {eyebrow && <p className="eyebrow text-gold">{eyebrow}</p>}
-        <h1 className="mt-3 max-w-3xl text-4xl font-extrabold leading-[1.08] sm:text-5xl">
+        {eyebrow && <p className="animate-fade-up eyebrow text-gold [animation-delay:80ms]">{eyebrow}</p>}
+        <h1 className="mt-3 max-w-3xl animate-fade-up text-4xl font-extrabold leading-[1.08] [animation-delay:180ms] sm:text-5xl">
           {title}
         </h1>
-        {intro && <p className="mt-5 max-w-2xl text-lg text-white/85">{intro}</p>}
+        {intro && (
+          <p className="mt-5 max-w-2xl animate-fade-up text-lg text-white/85 [animation-delay:300ms]">
+            {intro}
+          </p>
+        )}
       </div>
     </section>
   )

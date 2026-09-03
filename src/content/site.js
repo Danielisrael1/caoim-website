@@ -16,11 +16,11 @@ const site = {
   taglineRef: 'Isaiah 61:1',
 
   hero: {
-    // Big hero headline over the landing video. Keep it short.
-    headline: 'Good news to the poor.',
-    // Supporting line under the headline.
+    // Big hero headline over the landing video.
+    headline: 'The Spirit of God is upon me…',
+    // Supporting line under the headline (continues the verse).
     subhead:
-      'A church family in Maya, learning to love God, love people, and carry the hope of Jesus to our generation.',
+      '…because the Lord has anointed me to proclaim good news to the poor.',
   },
 
   contact: {
@@ -119,21 +119,26 @@ const site = {
     { title: 'The hope of glory', body: 'Jesus Christ will return in power to judge the world and to make all things new.' },
   ],
 
-  // Pr. Robert Tamale is confirmed; the rest are placeholders — add names, roles,
-  // short bios and photos (drop images into /public/team and set `photo`).
+  // The lead pastors get a large featured card; the rest follow as a grid.
+  leadPastors: {
+    names: 'Pr. Robert & Justine Tamale',
+    role: 'Lead Pastors',
+    photo: '/media/lead-pastors.jpg',
+    bio: [
+      'Pr. Robert Tamale and his wife Justine lead Christ the Alpha & Omega International Ministries, giving oversight to the church’s teaching, vision and pastoral care.',
+      'Their heart is to see lives restored through the gospel and a new generation raised as “oaks of righteousness, a planting of the Lord for the display of his splendour” (Isaiah 61:3).',
+    ],
+  },
+
+  // TODO: replace "Name coming soon" with real names, add bios and photos
+  // (drop images into public/media and set `photo`, e.g. '/media/jane-doe.jpg').
   leadership: [
-    {
-      name: 'Pr. Robert Tamale',
-      role: 'Lead Pastor',
-      bio: 'Pr. Robert Tamale gives oversight to the teaching, vision and pastoral care of the CAOIM family.',
-      photo: '/media/pastor-robert.jpg',
-    },
-    { name: 'Name coming soon', role: 'Associate Pastor', bio: 'Short bio coming soon.', photo: '' },
-    { name: 'Name coming soon', role: 'Pastor of Ministries', bio: 'Short bio coming soon.', photo: '' },
-    { name: 'Name coming soon', role: 'Worship Pastor', bio: 'Short bio coming soon.', photo: '' },
-    { name: 'Name coming soon', role: 'Youth Pastor', bio: 'Short bio coming soon.', photo: '' },
-    { name: 'Name coming soon', role: 'Children’s Ministry Leader', bio: 'Short bio coming soon.', photo: '' },
-    { name: 'Name coming soon', role: 'Church Administrator', bio: 'Short bio coming soon.', photo: '' },
+    { name: 'Name coming soon', department: 'Associate Pastor', bio: 'Short bio coming soon.', photo: '' },
+    { name: 'Name coming soon', department: 'Worship & Music', bio: 'Short bio coming soon.', photo: '' },
+    { name: 'Name coming soon', department: 'Youth Ministry', bio: 'Short bio coming soon.', photo: '' },
+    { name: 'Name coming soon', department: 'Children’s Ministry', bio: 'Short bio coming soon.', photo: '' },
+    { name: 'Name coming soon', department: 'Church Administration', bio: 'Short bio coming soon.', photo: '' },
+    { name: 'Name coming soon', department: 'Missions & Outreach', bio: 'Short bio coming soon.', photo: '' },
   ],
 
   ministries: [

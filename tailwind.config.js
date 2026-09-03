@@ -29,9 +29,19 @@ export default {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+        fadeUp: {
+          from: { opacity: '0', transform: 'translateY(22px)' },
+          to: { opacity: '1', transform: 'none' },
+        },
+        kenburns: {
+          from: { transform: 'scale(1)' },
+          to: { transform: 'scale(1.14)' },
+        },
       },
       animation: {
         marquee: 'marquee 30s linear infinite',
+        'fade-up': 'fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both',
+        kenburns: 'kenburns 20s ease-out both',
       },
     },
   },

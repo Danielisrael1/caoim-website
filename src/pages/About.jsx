@@ -4,24 +4,49 @@ import SectionHeading from '../components/SectionHeading.jsx'
 import ServiceTimes from '../components/ServiceTimes.jsx'
 import MapEmbed from '../components/MapEmbed.jsx'
 import Button from '../components/Button.jsx'
+import Reveal from '../components/Reveal.jsx'
 import { IconMapPin, IconPhone, IconMail, IconUser } from '../components/icons.jsx'
 
 function LeaderCard({ leader }) {
   return (
-    <div className="flex flex-col border border-black/10 bg-white">
+    <div className="flex h-full flex-col border border-black/10 bg-white">
       {leader.photo ? (
-        <div className="aspect-[4/5] overflow-hidden bg-paper">
+        <div className="aspect-[4/3] overflow-hidden bg-paper">
           <img src={leader.photo} alt={leader.name} loading="lazy" className="h-full w-full object-cover" />
         </div>
       ) : (
         <div className="flex aspect-[16/9] items-center justify-center bg-brand/5">
-          <IconUser className="h-9 w-9 text-brand/30" />
+          <IconUser className="h-10 w-10 text-brand/30" />
         </div>
       )}
-      <div className="flex-1 p-5">
-        <h3 className="font-bold text-ink">{leader.name}</h3>
-        <p className="text-sm font-medium text-brand">{leader.role}</p>
+      <div className="flex-1 p-6">
+        <p className="eyebrow">{leader.department}</p>
+        <h3 className="mt-2 text-lg font-bold text-ink">{leader.name}</h3>
         {leader.bio && <p className="mt-2 text-sm text-black/60">{leader.bio}</p>}
+      </div>
+    </div>
+  )
+}
+
+function LeadPastors({ data }) {
+  return (
+    <div className="grid overflow-hidden border border-black/10 bg-white md:grid-cols-2">
+      <div className="aspect-[4/3] bg-paper md:aspect-auto">
+        <img
+          src={data.photo}
+          alt={data.names}
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div className="flex flex-col justify-center p-8 md:p-12">
+        <p className="eyebrow">{data.role}</p>
+        <h3 className="mt-3 text-2xl font-bold text-ink sm:text-3xl">{data.names}</h3>
+        <div className="mt-4 space-y-3 text-black/65">
+          {(Array.isArray(data.bio) ? data.bio : [data.bio]).map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -62,14 +87,14 @@ export default function About() {
       {/* Mission & vision */}
       <section className="bg-paper py-20 md:py-28">
         <div className="container-page grid gap-6 md:grid-cols-2">
-          <div className="border border-black/10 bg-white p-8">
+          <Reveal className="border border-black/10 bg-white p-8">
             <p className="eyebrow">Mission</p>
             <p className="mt-4 text-lg leading-relaxed text-ink">{site.about.mission}</p>
-          </div>
-          <div className="border border-black/10 bg-white p-8">
+          </Reveal>
+          <Reveal delay={120} className="border border-black/10 bg-white p-8">
             <p className="eyebrow">Vision</p>
             <p className="mt-4 text-lg leading-relaxed text-ink">{site.about.vision}</p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -81,11 +106,11 @@ export default function About() {
           intro="We stand with the historic Christian church on these core truths."
         />
         <div className="mt-12 grid gap-px overflow-hidden border border-black/10 bg-black/10 sm:grid-cols-2 lg:grid-cols-4">
-          {site.beliefs.map((b) => (
-            <div key={b.title} className="bg-white p-6">
+          {site.beliefs.map((b, i) => (
+            <Reveal key={b.title} delay={(i % 4) * 70} className="bg-white p-6">
               <h3 className="font-bold text-ink">{b.title}</h3>
               <p className="mt-2 text-sm text-black/65">{b.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -100,12 +125,12 @@ export default function About() {
             tone="light"
           />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {site.values.map((v) => (
-              <div key={v.title} className="border-t-2 border-gold pt-5">
+            {site.values.map((v, i) => (
+              <Reveal key={v.title} delay={(i % 3) * 90} className="border-t-2 border-gold pt-5">
                 <p className="text-sm font-semibold text-gold">{v.ref}</p>
                 <h3 className="mt-1 text-lg font-bold">{v.title}</h3>
                 <p className="mt-2 text-sm text-white/75">{v.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -119,9 +144,18 @@ export default function About() {
           intro="Our pastors and leaders serve the church family with teaching, care and oversight."
           align="center"
         />
-        <div className="mt-14 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+        {site.leadPastors && (
+          <Reveal variant="zoom" className="mt-14">
+            <LeadPastors data={site.leadPastors} />
+          </Reveal>
+        )}
+
+        <div className="mt-6 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {site.leadership.map((l, i) => (
-            <LeaderCard key={`${l.name}-${i}`} leader={l} />
+            <Reveal key={`${l.name}-${i}`} delay={(i % 3) * 80} className="h-full">
+              <LeaderCard leader={l} />
+            </Reveal>
           ))}
         </div>
       </section>
