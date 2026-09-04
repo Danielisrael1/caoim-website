@@ -49,8 +49,9 @@ export default defineType({
       type: 'object',
       fields: [
         { name: 'handle', type: 'string', title: 'Handle' },
+        { name: 'channelId', type: 'string', title: 'Channel ID', description: 'Starts with UC… — used to auto-embed the latest upload' },
         { name: 'channelUrl', type: 'url', title: 'Channel URL' },
-        { name: 'featuredVideoId', type: 'string', title: 'Featured video ID' },
+        { name: 'featuredVideoId', type: 'string', title: 'Featured video ID (optional)', description: 'Pins one specific video instead of the latest upload' },
       ],
     }),
     defineField({

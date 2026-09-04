@@ -41,13 +41,15 @@ const site = {
   social: {
     facebook: 'https://facebook.com/caoimug',
     instagram: 'https://instagram.com/caoimug',
-    youtube: 'https://youtube.com/@caoimug',
+    youtube: 'https://www.youtube.com/channel/UCbS5Y40CjCU316YugzroIlg',
     tiktok: 'https://tiktok.com/@caoimug',
   },
   youtube: {
     handle: '@caoimug',
-    channelUrl: 'https://youtube.com/@caoimug',
-    // TODO: paste a video/live ID to embed a featured message on the Home page.
+    channelId: 'UCbS5Y40CjCU316YugzroIlg',
+    channelUrl: 'https://www.youtube.com/channel/UCbS5Y40CjCU316YugzroIlg',
+    // Optional: paste a specific video ID to feature one message instead of the
+    // channel's latest uploads on the Home page.
     featuredVideoId: '',
   },
 

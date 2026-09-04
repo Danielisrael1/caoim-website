@@ -8,7 +8,7 @@ import MinistryCard from '../components/MinistryCard.jsx'
 import Reveal from '../components/Reveal.jsx'
 import ServiceTimes from '../components/ServiceTimes.jsx'
 import MapEmbed from '../components/MapEmbed.jsx'
-import { IconPlay } from '../components/icons.jsx'
+import YouTubeFacade from '../components/YouTubeFacade.jsx'
 import { formatEventDate, upcomingEvents } from '../lib/format.js'
 
 export default function Home() {
@@ -106,32 +106,20 @@ export default function Home() {
       <section className="bg-ink text-white">
         <div className="container-page grid items-center gap-10 py-20 md:grid-cols-2 md:py-28 lg:gap-16">
           <Reveal variant="zoom">
-            <a
-              href={site.youtube.channelUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="group relative block aspect-[4/3] overflow-hidden"
-            >
-              <img
-                src="/media/worship.jpg"
-                alt="CAOIM worship service"
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <span className="absolute inset-0 flex items-center justify-center bg-black/30">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-brand transition-transform duration-300 group-hover:scale-110">
-                  <IconPlay className="h-6 w-6" />
-                </span>
-              </span>
-            </a>
+            <YouTubeFacade
+              videoId={site.youtube.featuredVideoId}
+              channelId={site.youtube.channelId}
+              poster="/media/worship.jpg"
+              alt="Watch CAOIM's latest message on YouTube"
+            />
           </Reveal>
           <Reveal delay={120}>
             <p className="eyebrow text-gold">Sermons</p>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Watch or catch up any time</h2>
             <p className="mt-4 text-lg leading-relaxed text-white/80">
               Every Sunday service is streamed live and archived on our YouTube channel
-              ({site.youtube.handle}). Grow in faith, be encouraged, and apply God’s Word to your
-              life — from anywhere.
+              ({site.youtube.handle}). Tap the photo to play our latest message right here, grow in
+              faith, and apply God’s Word to your life — from anywhere.
             </p>
             <div className="mt-8">
               <Button href={site.youtube.channelUrl} external variant="gold" arrow>
