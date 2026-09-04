@@ -126,6 +126,8 @@ export default defineType({
       type: 'object',
       fields: [
         { name: 'intro', type: 'text', rows: 4 },
+        { name: 'accountName', title: 'Registered account name', type: 'string' },
+        { name: 'poster', title: 'Giving poster', type: 'image' },
         {
           name: 'scripture',
           type: 'object',
@@ -148,17 +150,6 @@ export default defineType({
                 { name: 'steps', type: 'array', of: [{ type: 'string' }] },
               ],
             },
-          ],
-        },
-        {
-          name: 'bank',
-          type: 'object',
-          fields: [
-            { name: 'bankName', type: 'string' },
-            { name: 'accountName', type: 'string' },
-            { name: 'accountNumber', type: 'string' },
-            { name: 'branch', type: 'string' },
-            { name: 'swift', type: 'string' },
           ],
         },
         { name: 'inPerson', type: 'text', rows: 2 },

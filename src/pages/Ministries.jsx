@@ -13,13 +13,13 @@ export default function Ministries() {
         eyebrow="Ministries"
         title="Grow, serve and belong"
         intro="From our youngest children to our elders, CAOIM has a community where you can grow in faith and use your gifts."
-        image="/media/youth-choir.jpg"
+        image="/media/celebration.jpg"
       />
 
       {site.ministries.map((m, i) => (
         <div key={m.slug} id={m.slug}>
           <FeatureRow
-            image={m.image || '/media/worship-team.jpg'}
+            image={m.image || '/media/worship.jpg'}
             imageAlt={m.name}
             imageSide={i % 2 === 0 ? 'left' : 'right'}
             tone={i % 2 === 0 ? 'light' : 'paper'}

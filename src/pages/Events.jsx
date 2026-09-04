@@ -19,7 +19,7 @@ export default function Events() {
         eyebrow="Events"
         title="What's happening at CAOIM"
         intro="Sundays, midweek gatherings and special events. Everyone is welcome — bring a friend."
-        image="/media/worship-dance.jpg"
+        image="/media/praise-team.jpg"
       />
 
       {featured && (
@@ -27,21 +27,36 @@ export default function Events() {
           <div className="container-page grid items-center gap-10 py-16 md:grid-cols-2 md:py-20 lg:gap-16">
             <Reveal variant="zoom" className="overflow-hidden">
               <img
-                src="/media/worship-hands.jpg"
-                alt=""
+                src={featured.poster || '/media/worship.jpg'}
+                alt={featured.poster ? `${featured.title} poster` : ''}
                 loading="lazy"
-                className="aspect-[4/3] w-full object-cover"
+                className={`w-full ${featured.poster ? 'border border-black/10' : 'aspect-[4/3] object-cover'}`}
               />
             </Reveal>
             <Reveal delay={120}>
               <p className="eyebrow">Don&apos;t miss</p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">{featured.title}</h2>
+              {featured.theme && (
+                <p className="mt-2 text-lg font-semibold text-brand">{featured.theme}</p>
+              )}
               <p className="mt-4 text-lg text-black/65">{featured.summary}</p>
-              <p className="mt-4 font-semibold text-ink">
-                {formatEventDate(featured.date)}
-                {featured.time ? ` · ${featured.time}` : ''}
-              </p>
-              <p className="text-black/60">{featured.location}</p>
+              <dl className="mt-5 space-y-1.5 text-black/70">
+                <p>
+                  <span className="font-semibold text-ink">When: </span>
+                  {formatEventDate(featured.date)}
+                  {featured.time ? ` · ${featured.time}` : ''}
+                </p>
+                <p>
+                  <span className="font-semibold text-ink">Where: </span>
+                  {featured.location}
+                </p>
+                {featured.speakers && (
+                  <p>
+                    <span className="font-semibold text-ink">Ministering: </span>
+                    {featured.speakers}
+                  </p>
+                )}
+              </dl>
             </Reveal>
           </div>
         </section>
@@ -63,6 +78,32 @@ export default function Events() {
           </p>
         )}
       </section>
+
+      {Array.isArray(site.programmes) && site.programmes.length > 0 && (
+        <section className="bg-paper py-20 md:py-24">
+          <div className="container-page">
+            <SectionHeading eyebrow="Weekly programme" title="Our regular services" />
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {site.programmes.map((p, i) => (
+                <Reveal key={p.title} delay={(i % 3) * 90} className="h-full">
+                  <figure className="flex h-full flex-col border border-black/10 bg-white">
+                    <img
+                      src={p.poster}
+                      alt={p.title}
+                      loading="lazy"
+                      className="w-full object-cover"
+                    />
+                    <figcaption className="p-4">
+                      <p className="font-bold text-ink">{p.title}</p>
+                      <p className="text-sm text-black/60">{p.detail}</p>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-brand text-white">
         <div className="container-page grid gap-10 py-20 md:grid-cols-2 md:py-24 lg:gap-16">

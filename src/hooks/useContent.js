@@ -27,6 +27,7 @@ function mergeContent(base, remote) {
   if (Array.isArray(remote.leadership) && remote.leadership.length) out.leadership = remote.leadership
   if (Array.isArray(remote.ministries) && remote.ministries.length) out.ministries = remote.ministries
   if (Array.isArray(remote.events) && remote.events.length) out.events = remote.events
+  if (Array.isArray(remote.programmes) && remote.programmes.length) out.programmes = remote.programmes
 
   return out
 }

@@ -34,7 +34,7 @@ const site = {
       'Uganda',
     ],
     addressNote:
-      'About 27 km (17 miles) south‑west of Kampala, just before Stabex Gas Station.',
+      '14 miles (about 23 km) from Kampala, just before Stabex petrol station.',
     mapQuery: 'Maya, Wakiso, Uganda',
   },
 
@@ -51,12 +51,10 @@ const site = {
     featuredVideoId: '',
   },
 
-  // TODO: confirm real service days and times.
   serviceTimes: [
-    { name: 'First Service', day: 'Sunday', time: '8:00 AM', note: 'In person & online' },
-    { name: 'Second Service', day: 'Sunday', time: '10:30 AM', note: 'In person & online' },
-    { name: 'Midweek Service', day: 'Wednesday', time: '5:30 PM', note: 'In person' },
-    { name: 'Prayer Meeting', day: 'Friday', time: '6:00 PM', note: 'In person' },
+    { name: 'Morning Service', day: 'Sunday', time: '7:00 – 9:00 AM', note: 'In person & online' },
+    { name: 'Main Service', day: 'Sunday', time: '9:00 AM – 2:00 PM', note: 'In person & online' },
+    { name: 'Deliverance Service', day: 'Wednesday', time: '6:00 – 9:00 PM', note: 'In person' },
   ],
 
   about: {
@@ -130,15 +128,38 @@ const site = {
     ],
   },
 
-  // TODO: replace "Name coming soon" with real names, add bios and photos
-  // (drop images into public/media and set `photo`, e.g. '/media/jane-doe.jpg').
+  // TODO: confirm the bios below with the leaders themselves.
   leadership: [
-    { name: 'Name coming soon', department: 'Associate Pastor', bio: 'Short bio coming soon.', photo: '' },
-    { name: 'Name coming soon', department: 'Worship & Music', bio: 'Short bio coming soon.', photo: '' },
-    { name: 'Name coming soon', department: 'Youth Ministry', bio: 'Short bio coming soon.', photo: '' },
-    { name: 'Name coming soon', department: 'Children’s Ministry', bio: 'Short bio coming soon.', photo: '' },
-    { name: 'Name coming soon', department: 'Church Administration', bio: 'Short bio coming soon.', photo: '' },
-    { name: 'Name coming soon', department: 'Missions & Outreach', bio: 'Short bio coming soon.', photo: '' },
+    {
+      name: 'Pr. Paul Muwanguzi',
+      department: 'Overseer',
+      bio: 'Provides spiritual covering and oversight to the church and its leaders.',
+      photo: '/media/pr-paul.jpg',
+    },
+    {
+      name: 'Elder Anna',
+      department: 'Chief Elder',
+      bio: 'Serves as chief elder, caring for the church family and upholding sound order.',
+      photo: '/media/elder-anna.jpg',
+    },
+    {
+      name: 'Pr. Teo Kisakye',
+      department: 'Evangelism Leader',
+      bio: 'Leads the church in evangelism and reaching the community with the gospel.',
+      photo: '/media/pr-teo.jpg',
+    },
+    {
+      name: 'Pr. Muganzi Amos',
+      department: 'Youth Pastor',
+      bio: 'Pastors the youth, discipling the next generation to follow Jesus.',
+      photo: '/media/pr-amos.jpg',
+    },
+    {
+      name: 'Pr. Ampaire Jackson',
+      department: 'Leader of Intercession',
+      bio: 'Leads the intercession and prayer ministry of the church.',
+      photo: '', // TODO: photo to be provided
+    },
   ],
 
   ministries: [
@@ -146,7 +167,7 @@ const site = {
       slug: 'children',
       name: 'Children',
       audience: 'Nursery – 12 years',
-      image: '/media/welcome.jpg',
+      image: '/media/kids.jpg',
       summary:
         'A safe, joyful and faith‑filled space where children meet Jesus through Bible stories, worship, crafts and games.',
       meets: 'Sundays, during both services',
@@ -159,7 +180,7 @@ const site = {
       slug: 'youth',
       name: 'Youth',
       audience: '13 – 25 years',
-      image: '/media/youth-choir.jpg',
+      image: '/media/celebration.jpg',
       summary:
         'A generation being discipled to love God boldly — weekly gatherings, mentorship, worship and our annual Youth Conference.',
       meets: 'Sundays + midweek fellowships',
@@ -172,7 +193,7 @@ const site = {
       slug: 'men',
       name: 'Men’s Ministry',
       audience: 'Men of every age',
-      image: '/media/choir-red.jpg',
+      image: '/media/men.jpg',
       summary:
         'Brotherhood, accountability and service — men growing as husbands, fathers and leaders after God’s own heart.',
       meets: 'Monthly fellowship',
@@ -185,7 +206,7 @@ const site = {
       slug: 'women',
       name: 'Women’s Ministry',
       audience: 'Women of every age',
-      image: '/media/worship-team.jpg',
+      image: '/media/women.jpg',
       summary:
         'A sisterhood of prayer, the Word and friendship, encouraging women to walk in their God‑given worth and calling.',
       meets: 'Monthly fellowship',
@@ -201,9 +222,12 @@ const site = {
     {
       slug: 'youth-conference',
       title: 'Youth Conference',
+      theme: '“None Found Like Them” — Daniel 1:19',
       date: '2026-09-06',
-      time: '9:00 AM – 4:00 PM',
-      location: 'CAOIM, Maya',
+      time: '3:00 PM',
+      location: 'CAOIM, Maya (14 miles from Kampala, before Stabex petrol station)',
+      speakers: 'Host: Pr. Robert Tamale · Guest preacher: Ap. Denis Musoke',
+      poster: '/media/poster-youth-conference.jpg',
       featured: true,
       summary:
         'A day set apart for the next generation — worship, the Word, and a fresh encounter with Jesus. Bring a friend.',
@@ -212,28 +236,28 @@ const site = {
       slug: 'sunday-services',
       title: 'Sunday Services',
       date: '2026-09-13',
-      time: '8:00 AM & 10:30 AM',
+      time: '7:00 AM & 9:00 AM',
       location: 'CAOIM, Maya + YouTube Live',
       recurring: 'Every Sunday',
-      summary: 'Gather with the whole church family for worship and teaching. Children’s ministry runs in both services.',
+      summary:
+        'Two gatherings each Sunday — the 7:00 AM Morning Service and the 9:00 AM Main Service. Children’s ministry runs alongside.',
     },
     {
-      slug: 'midweek-prayer',
-      title: 'Midweek Prayer',
-      date: '2026-09-11',
-      time: '6:00 PM',
+      slug: 'deliverance-service',
+      title: 'Deliverance Service',
+      date: '2026-09-09',
+      time: '6:00 – 9:00 PM',
       location: 'CAOIM, Maya',
-      recurring: 'Every Friday',
-      summary: 'We come together to seek the Lord for our church, our community and the nations.',
+      recurring: 'Every Wednesday',
+      summary: 'A midweek service of worship, the Word, prayer and ministry for freedom in Christ.',
     },
-    {
-      slug: 'water-baptism',
-      title: 'Water Baptism Sunday',
-      date: '2026-09-27',
-      time: 'During the second service',
-      location: 'CAOIM, Maya',
-      summary: 'Have you given your life to Jesus? Take your next step in obedience and be baptised. Speak to a pastor to register.',
-    },
+  ],
+
+  // Weekly programme banners (shown on the Events page).
+  programmes: [
+    { title: 'Sunday Morning Service', detail: 'Every Sunday · 7:00 – 9:00 AM', poster: '/media/poster-sunday-morning.jpg' },
+    { title: 'Sunday Main Service', detail: 'Every Sunday · 9:00 AM – 2:00 PM', poster: '/media/poster-sunday-main.jpg' },
+    { title: 'Wednesday Deliverance Service', detail: 'Every Wednesday · 6:00 – 9:00 PM', poster: '/media/poster-wednesday.jpg' },
   ],
 
   giving: {
@@ -243,39 +267,31 @@ const site = {
       text: 'Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver.',
       ref: '2 Corinthians 9:7',
     },
-    // TODO: replace the placeholder merchant codes with your real ones.
+    accountName: 'Christ the Alpha and Omega International Ministries',
+    poster: '/media/poster-give.jpg',
     mobileMoney: [
       {
         provider: 'Airtel Money',
         label: 'Merchant Code',
-        code: '000000',
+        code: '4301752',
         steps: [
-          'Dial *185# and choose “Pay Bill / Merchant Payment”.',
-          'Enter merchant code 000000.',
-          'Enter the amount, then your PIN.',
-          'Use your name as the reference and confirm.',
+          'Dial *185#, then Select 5, then Select 10.',
+          'Enter merchant code 4301752.',
+          'Select Tithe / Offertory / Seed / Others.',
+          'Enter the amount, then a reference, then your PIN.',
         ],
       },
       {
         provider: 'MTN MoMo',
         label: 'Merchant Code',
-        code: '000000',
+        code: '635500',
         steps: [
-          'Dial *165# and choose “Pay Bill”.',
-          'Enter merchant code 000000.',
+          'Dial *165#, then Select 3.',
+          'Enter merchant code 635500.',
           'Enter the amount, then your PIN.',
-          'Use your name as the reference and confirm.',
         ],
       },
     ],
-    // TODO: add real bank details or remove this block.
-    bank: {
-      bankName: 'Bank name coming soon',
-      accountName: 'Christ the Alpha & Omega International Ministries',
-      accountNumber: '0000000000',
-      branch: 'Branch coming soon',
-      swift: '',
-    },
     inPerson:
       'You are also welcome to give during any service at the offering, or hand your gift to a leader.',
   },

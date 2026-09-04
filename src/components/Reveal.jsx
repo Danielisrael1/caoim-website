@@ -51,8 +51,8 @@ export default function Reveal({
     )
     io.observe(el)
 
-    // Safety net: if the observer never fires for any reason, show after 4s.
-    const fallback = setTimeout(() => setVisible(true), 4000)
+    // Safety net: if the observer never fires for any reason, show after 2.5s.
+    const fallback = setTimeout(() => setVisible(true), 2500)
 
     return () => {
       io.disconnect()

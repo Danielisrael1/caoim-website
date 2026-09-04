@@ -7,5 +7,6 @@ import siteSettings from './siteSettings.js'
 import leader from './leader.js'
 import ministry from './ministry.js'
 import event from './event.js'
+import programme from './programme.js'
 
-export const schemaTypes = [siteSettings, leader, ministry, event]
+export const schemaTypes = [siteSettings, leader, ministry, event, programme]

@@ -23,8 +23,8 @@ export default function Home() {
 
       {/* Get to know us */}
       <FeatureRow
-        image="/media/welcome.jpg"
-        imageAlt="Being welcomed at a CAOIM gathering"
+        image="/media/worship-family.jpg"
+        imageAlt="A family worshipping together at CAOIM"
         imageSide="left"
         eyebrow="Get to know us"
         title="You belong here"
@@ -42,8 +42,8 @@ export default function Home() {
       {/* This week's event */}
       {featured && (
         <FeatureRow
-          image="/media/worship-dance.jpg"
-          imageAlt="Worship at CAOIM"
+          image="/media/celebration.jpg"
+          imageAlt="Celebration at CAOIM"
           imageSide="right"
           tone="paper"
           eyebrow="Coming up"
@@ -113,7 +113,7 @@ export default function Home() {
               className="group relative block aspect-[4/3] overflow-hidden"
             >
               <img
-                src="/media/stage.jpg"
+                src="/media/worship.jpg"
                 alt="CAOIM worship service"
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

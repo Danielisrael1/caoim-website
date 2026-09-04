@@ -39,7 +39,7 @@ export default function Give() {
         eyebrow="Give"
         title="Give with a cheerful heart"
         intro={g.intro}
-        image="/media/worship-hands.jpg"
+        image="/media/women.jpg"
       />
 
       <section className="container-page py-20 md:py-28">
@@ -56,29 +56,22 @@ export default function Give() {
           ))}
         </div>
 
-        {g.bank && (
-          <div className="mt-16">
-            <SectionHeading eyebrow="Bank transfer" title="Give by bank" />
-            <dl className="mt-6 max-w-lg border border-black/10">
-              {[
-                ['Bank', g.bank.bankName],
-                ['Account name', g.bank.accountName],
-                ['Account number', g.bank.accountNumber],
-                ['Branch', g.bank.branch],
-                ['SWIFT', g.bank.swift],
-              ]
-                .filter(([, v]) => v)
-                .map(([k, v]) => (
-                  <div
-                    key={k}
-                    className="flex justify-between gap-4 border-b border-black/10 px-5 py-3 text-sm last:border-0"
-                  >
-                    <dt className="text-black/55">{k}</dt>
-                    <dd className="font-medium text-ink">{v}</dd>
-                  </div>
-                ))}
-            </dl>
-          </div>
+        {g.accountName && (
+          <p className="mt-6 border border-black/10 bg-paper px-5 py-4 text-sm text-black/70">
+            The registered name on both merchant codes is{' '}
+            <span className="font-semibold text-ink">{g.accountName}</span>.
+          </p>
+        )}
+
+        {g.poster && (
+          <Reveal variant="zoom" className="mt-12">
+            <img
+              src={g.poster}
+              alt="How to give to CAOIM using Airtel Money and MTN MoMo merchant codes"
+              loading="lazy"
+              className="w-full border border-black/10"
+            />
+          </Reveal>
         )}
 
         {g.inPerson && (
