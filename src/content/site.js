@@ -34,7 +34,7 @@ const site = {
       'Uganda',
     ],
     addressNote:
-      '14 miles (about 23 km) from Kampala, just before Stabex petrol station.',
+      'About 27 km (17 miles) south‑west of Kampala, just before Stabex Gas Station.',
     mapQuery: 'Maya, Wakiso, Uganda',
   },
 
@@ -225,7 +225,7 @@ const site = {
       theme: '“None Found Like Them” — Daniel 1:19',
       date: '2026-09-06',
       time: '3:00 PM',
-      location: 'CAOIM, Maya (14 miles from Kampala, before Stabex petrol station)',
+      location: 'CAOIM, Maya (before Stabex petrol station)',
       speakers: 'Host: Pr. Robert Tamale · Guest preacher: Ap. Denis Musoke',
       poster: '/media/poster-youth-conference.jpg',
       featured: true,

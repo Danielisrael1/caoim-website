@@ -48,14 +48,14 @@ export default function Hero({ site }) {
         aria-hidden="true"
       />
 
-      <div ref={contentRef} className="container-page relative py-24 will-change-transform">
+      <div ref={contentRef} className="container-page relative py-20 will-change-transform sm:py-24">
         <p className="animate-fade-up eyebrow text-gold [animation-delay:100ms]">
           Welcome to {site.shortName} · {site.campus}
         </p>
-        <h1 className="mt-5 max-w-5xl animate-fade-up text-5xl font-extrabold leading-[1.02] [animation-delay:200ms] sm:text-7xl lg:text-8xl">
+        <h1 className="mt-4 max-w-5xl animate-fade-up text-4xl font-extrabold leading-[1.08] [animation-delay:200ms] sm:mt-5 sm:text-6xl sm:leading-[1.03] md:text-7xl lg:text-8xl lg:leading-[1.02]">
           {site.hero.headline}
         </h1>
-        <p className="mt-7 max-w-2xl animate-fade-up text-xl text-white/85 [animation-delay:350ms] sm:text-2xl">
+        <p className="mt-5 max-w-2xl animate-fade-up text-lg text-white/85 [animation-delay:350ms] sm:mt-7 sm:text-2xl">
           {site.hero.subhead}
         </p>
         <p className="mt-3 animate-fade-up text-sm font-semibold uppercase tracking-[0.2em] text-gold [animation-delay:450ms]">

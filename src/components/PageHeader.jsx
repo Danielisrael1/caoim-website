@@ -16,13 +16,13 @@ export default function PageHeader({ eyebrow, title, intro, image }) {
           <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
         </>
       )}
-      <div className="container-page relative py-16 md:py-24">
+      <div className="container-page relative py-14 sm:py-16 md:py-24">
         {eyebrow && <p className="animate-fade-up eyebrow text-gold [animation-delay:80ms]">{eyebrow}</p>}
-        <h1 className="mt-3 max-w-3xl animate-fade-up text-4xl font-extrabold leading-[1.08] [animation-delay:180ms] sm:text-5xl">
+        <h1 className="mt-3 max-w-3xl animate-fade-up text-3xl font-extrabold leading-[1.1] [animation-delay:180ms] sm:text-4xl md:text-5xl md:leading-[1.08]">
           {title}
         </h1>
         {intro && (
-          <p className="mt-5 max-w-2xl animate-fade-up text-lg text-white/85 [animation-delay:300ms]">
+          <p className="mt-4 max-w-2xl animate-fade-up text-base text-white/85 [animation-delay:300ms] sm:mt-5 sm:text-lg">
             {intro}
           </p>
         )}
