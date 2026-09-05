@@ -1,8 +1,10 @@
 import Button from '../components/Button.jsx'
+import Seo from '../components/Seo.jsx'
 
 export default function NotFound() {
   return (
     <section className="container-page flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
+      <Seo title="Page not found – CAOIM" noindex />
       <p className="text-7xl font-extrabold text-brand">404</p>
       <h1 className="mt-4 text-2xl font-bold text-ink">We couldn&apos;t find that page</h1>
       <p className="mt-2 max-w-md text-black/60">

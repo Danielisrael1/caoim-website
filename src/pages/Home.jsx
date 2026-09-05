@@ -1,4 +1,5 @@
 import { useSite } from '../content/ContentContext.jsx'
+import Seo from '../components/Seo.jsx'
 import Hero from '../components/Hero.jsx'
 import Marquee from '../components/Marquee.jsx'
 import FeatureRow from '../components/FeatureRow.jsx'
@@ -18,6 +19,11 @@ export default function Home() {
 
   return (
     <>
+      <Seo
+        title={`${site.shortName} – ${site.name}, ${site.campus}`}
+        description={`${site.legalNote}. ${site.tagline} Join us in ${site.campus}, Wakiso, Uganda — in person or live on YouTube.`}
+        image="/media/hero-poster.jpg"
+      />
       <Hero site={site} />
       <Marquee items={['Welcome home', 'Christ the Alpha & Omega', `${site.campus} · Uganda`]} />
 

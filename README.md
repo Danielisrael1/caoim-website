@@ -76,6 +76,27 @@ Pages / nav: **Home · About · Ministries · Events · Give**.
 
 ---
 
+## SEO
+
+- **One domain to set**: `siteUrl` in `src/content/site.js` (currently the
+  placeholder `https://caoim.org`). It drives the sitemap, robots.txt,
+  canonical links, and structured data. When you get a real domain, update it
+  there **and** the matching fallback tags near the top of `index.html`, then
+  rebuild — `public/robots.txt` and `public/sitemap.xml` regenerate
+  automatically (`scripts/generate-seo.mjs`, wired into `predev`/`prebuild`).
+- **Per-page titles, descriptions, canonical links and Open Graph/Twitter
+  tags** update automatically as you navigate (`src/components/Seo.jsx`,
+  used on every page). This helps Google (which renders JavaScript when
+  indexing) but not link-preview bots that don't run JS — that's what the
+  static tags in `index.html` are for, as a sitewide fallback.
+- **Structured data (JSON-LD)**: a `Church` schema (address, phone, socials,
+  service times) on every page, plus an `Event` schema per upcoming event on
+  the Events page — built from `site.js` in `src/lib/seo.js`, so it stays
+  correct as you edit content.
+- The 404 page is marked `noindex`.
+
+---
+
 ## Sanity (optional, later)
 
 See **[SANITY.md](./SANITY.md)**. Create a free project, copy the schemas from

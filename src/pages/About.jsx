@@ -1,4 +1,5 @@
 import { useSite } from '../content/ContentContext.jsx'
+import Seo from '../components/Seo.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import ServiceTimes from '../components/ServiceTimes.jsx'
@@ -57,6 +58,11 @@ export default function About() {
 
   return (
     <>
+      <Seo
+        title={`About Us – ${site.shortName}`}
+        description={site.about.intro}
+        image="/media/congregation.jpg"
+      />
       <PageHeader
         eyebrow="About us"
         title="Christ is the Alpha and the Omega"

@@ -2,6 +2,18 @@
   command = "npm run build"
   publish = "dist"
 
+# Long-cache hashed JS/CSS bundles; a day for photos/video (page speed is a
+# ranking factor, and static files here don't exist yet before the build).
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

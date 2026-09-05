@@ -5,7 +5,10 @@
   "type": "module",
   "description": "Website for Christ the Alpha & Omega International Ministries – Maya (CAOIM)",
   "scripts": {
+    "seo:generate": "node scripts/generate-seo.mjs",
+    "predev": "npm run seo:generate",
     "dev": "vite",
+    "prebuild": "npm run seo:generate",
     "build": "vite build",
     "preview": "vite preview"
   },

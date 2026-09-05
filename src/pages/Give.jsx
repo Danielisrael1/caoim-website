@@ -1,4 +1,5 @@
 import { useSite } from '../content/ContentContext.jsx'
+import Seo from '../components/Seo.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -35,6 +36,11 @@ export default function Give() {
 
   return (
     <>
+      <Seo
+        title={`Give – ${site.shortName}`}
+        description={`Give to ${site.name} by Airtel Money, MTN MoMo, or in person in ${site.campus}. ${g.intro}`}
+        image="/media/women.jpg"
+      />
       <PageHeader
         eyebrow="Give"
         title="Give with a cheerful heart"

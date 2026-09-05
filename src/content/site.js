@@ -6,6 +6,12 @@
  */
 
 const site = {
+  // TODO: replace with your real domain once you have one — it drives the
+  // sitemap, canonical links, and Open Graph/structured data. Also update the
+  // matching fallback tags near the top of index.html, then run `npm run
+  // build` (or `npm run dev`) to regenerate public/robots.txt + sitemap.xml.
+  siteUrl: 'https://caoim.org',
+
   name: 'Christ the Alpha & Omega International Ministries',
   shortName: 'CAOIM',
   campus: 'Maya',

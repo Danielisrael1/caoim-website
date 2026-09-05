@@ -1,18 +1,27 @@
 import { useSite } from '../content/ContentContext.jsx'
+import Seo from '../components/Seo.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import FeatureRow from '../components/FeatureRow.jsx'
 import Button from '../components/Button.jsx'
 import Reveal from '../components/Reveal.jsx'
+
+const INTRO =
+  'From our youngest children to our elders, CAOIM has a community where you can grow in faith and use your gifts.'
 
 export default function Ministries() {
   const site = useSite()
 
   return (
     <>
+      <Seo
+        title={`Ministries – ${site.shortName}`}
+        description={`${INTRO} Children, Youth, Men's and Women's ministries at ${site.shortName} in ${site.campus}.`}
+        image="/media/celebration.jpg"
+      />
       <PageHeader
         eyebrow="Ministries"
         title="Grow, serve and belong"
-        intro="From our youngest children to our elders, CAOIM has a community where you can grow in faith and use your gifts."
+        intro={INTRO}
         image="/media/celebration.jpg"
       />
 

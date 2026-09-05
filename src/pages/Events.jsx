@@ -1,4 +1,5 @@
 import { useSite } from '../content/ContentContext.jsx'
+import Seo from '../components/Seo.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import EventCard from '../components/EventCard.jsx'
@@ -6,6 +7,7 @@ import ServiceTimes from '../components/ServiceTimes.jsx'
 import Button from '../components/Button.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { formatEventDate, upcomingEvents } from '../lib/format.js'
+import { buildEventsJsonLd } from '../lib/seo.js'
 
 export default function Events() {
   const site = useSite()
@@ -15,6 +17,13 @@ export default function Events() {
 
   return (
     <>
+      <Seo
+        title={`Events – ${site.shortName}`}
+        description={`Sundays, midweek gatherings and special events at ${site.shortName} in ${site.campus}. Everyone is welcome — bring a friend.`}
+        image={featured?.poster || '/media/praise-team.jpg'}
+        jsonLd={events.length ? buildEventsJsonLd(site, events) : undefined}
+        jsonLdId="ld-json-events"
+      />
       <PageHeader
         eyebrow="Events"
         title="What's happening at CAOIM"
