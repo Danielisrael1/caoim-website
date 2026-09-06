@@ -29,15 +29,14 @@ Node 18+ (Node 22 recommended).
 Until Sanity is connected, everything is in **`src/content/site.js`**. Search the
 file for `TODO` — those are placeholders that still need real information:
 
-| Placeholder | What to replace |
+| Placeholder / to keep current | Notes |
 |---|---|
-| `contact.phone` / `contact.phoneAlt` / `contact.email` | Real phone(s) and email |
-| `serviceTimes` | Confirm real days/times |
-| `leadership` | Names / roles / bios / photos for the 6 people after Pr. Robert Tamale |
-| `giving.mobileMoney[].code` | Real Airtel Money & MTN MoMo merchant codes |
-| `giving.bank` | Real bank details, or delete the block |
-| `youtube.featuredVideoId` | A YouTube video ID to embed the latest message on the Home page |
+| `siteUrl` | Real domain, once you have one (see the SEO section) |
+| `leadership` — Pr. Ampaire Jackson `photo` | Still `''`; add the photo when provided |
+| `leadership` bios | Marked `TODO` — confirm with the leaders |
+| `beliefs` | Marked `TODO` — review against your doctrine |
 | `events` | Keep the list current (ISO dates) |
+| `youtube.featuredVideoId` | Optional — pins one video instead of the channel's latest |
 
 ### Images & video
 

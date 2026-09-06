@@ -6,6 +6,7 @@ import ServiceTimes from '../components/ServiceTimes.jsx'
 import MapEmbed from '../components/MapEmbed.jsx'
 import Button from '../components/Button.jsx'
 import Reveal from '../components/Reveal.jsx'
+import { telHref } from '../lib/format.js'
 import { IconMapPin, IconPhone, IconMail, IconUser } from '../components/icons.jsx'
 
 function LeaderCard({ leader }) {
@@ -185,20 +186,25 @@ export default function About() {
                     <span key={line} className="block">{line}</span>
                   ))}
                   <span className="mt-1 block text-black/50">{site.contact.addressNote}</span>
+                  {site.contact.poBox && (
+                    <span className="mt-1 block text-black/50">{site.contact.poBox}</span>
+                  )}
                 </span>
               </li>
               <li className="flex gap-2">
                 <IconPhone className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
-                <span>
-                  <a href={`tel:${site.contact.phone.replace(/\s+/g, '')}`} className="hover:text-brand">
-                    {site.contact.phone}
-                  </a>
-                  {site.contact.phoneAlt ? ` · ${site.contact.phoneAlt}` : ''}
+                <span className="flex flex-wrap gap-x-2 gap-y-1">
+                  {(site.contact.phones || []).map((phone, i) => (
+                    <span key={phone}>
+                      <a href={telHref(phone)} className="hover:text-brand">{phone}</a>
+                      {i < site.contact.phones.length - 1 && <span className="text-black/30"> ·</span>}
+                    </span>
+                  ))}
                 </span>
               </li>
               <li className="flex gap-2">
                 <IconMail className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
-                <a href={`mailto:${site.contact.email}`} className="hover:text-brand">
+                <a href={`mailto:${site.contact.email}`} className="break-all hover:text-brand">
                   {site.contact.email}
                 </a>
               </li>

@@ -19,6 +19,24 @@ export function formatEventDateShort(iso) {
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
 }
 
+/**
+ * Build a `tel:` href from a display phone number.
+ * "0393 256 329" -> "tel:+256393256329"; leaves +/00-prefixed numbers alone.
+ */
+export function telHref(phone = '') {
+  const digits = String(phone).replace(/[^\d+]/g, '')
+  if (digits.startsWith('+')) return `tel:${digits}`
+  if (digits.startsWith('00')) return `tel:+${digits.slice(2)}`
+  if (digits.startsWith('0')) return `tel:+256${digits.slice(1)}`
+  if (digits.startsWith('256')) return `tel:+${digits}`
+  return `tel:${digits}`
+}
+
+/** International form of a local phone number, e.g. "0393 256 329" -> "+256393256329". */
+export function intlPhone(phone = '') {
+  return telHref(phone).replace(/^tel:/, '')
+}
+
 /** Sort by date ascending; keep only events from today onward. */
 export function upcomingEvents(events = []) {
   const today = new Date()

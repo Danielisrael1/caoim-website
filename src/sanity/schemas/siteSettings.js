@@ -24,9 +24,9 @@ export default defineType({
       title: 'Contact',
       type: 'object',
       fields: [
-        { name: 'phone', type: 'string', title: 'Phone' },
-        { name: 'phoneAlt', type: 'string', title: 'Phone (alternate)' },
+        { name: 'phones', type: 'array', of: [{ type: 'string' }], title: 'Phone numbers' },
         { name: 'email', type: 'string', title: 'Email' },
+        { name: 'poBox', type: 'string', title: 'Postal address (P.O. Box)' },
         { name: 'addressLines', type: 'array', of: [{ type: 'string' }], title: 'Address lines' },
         { name: 'addressNote', type: 'text', rows: 2, title: 'Directions note' },
         { name: 'mapQuery', type: 'string', title: 'Google Maps search text' },

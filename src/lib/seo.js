@@ -1,4 +1,5 @@
 /** Helpers for building the site's structured data (JSON-LD). */
+import { intlPhone } from './format.js'
 
 export function absoluteUrl(siteUrl, p = '') {
   const base = siteUrl.replace(/\/$/, '')
@@ -109,7 +110,7 @@ export function buildChurchJsonLd(site) {
     url: absoluteUrl(site.siteUrl),
     logo: absoluteUrl(site.siteUrl, '/logo.png'),
     image: absoluteUrl(site.siteUrl, '/media/hero-poster.jpg'),
-    telephone: site.contact?.phone,
+    telephone: site.contact?.phones?.[0] ? intlPhone(site.contact.phones[0]) : undefined,
     email: site.contact?.email,
     address: churchAddress(site),
     sameAs: Object.values(site.social || {}).filter(Boolean),

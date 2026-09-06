@@ -30,10 +30,9 @@ const site = {
   },
 
   contact: {
-    // TODO: replace the placeholder phone numbers and email.
-    phone: '+256 700 000 000',
-    phoneAlt: '+256 780 000 000',
-    email: 'info@caoim.org',
+    phones: ['0393 256 329', '0705 555 177', '0200 908 885'],
+    email: 'christthealphaandomegaint@gmail.com',
+    poBox: 'P.O. Box 12362, Kampala, Uganda',
     addressLines: [
       'Maya, along the Kampala–Masaka Road',
       'Wakiso District, Central Region',

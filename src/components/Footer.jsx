@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import SocialLinks from './SocialLinks.jsx'
+import { telHref } from '../lib/format.js'
 
 export default function Footer({ site }) {
   const year = new Date().getFullYear()
-  const tel = site.contact.phone.replace(/\s+/g, '')
+  const phones = site.contact.phones || []
 
   return (
     <footer className="bg-ink text-white/70">
@@ -41,6 +42,7 @@ export default function Footer({ site }) {
               <p key={line}>{line}</p>
             ))}
             <p className="pt-2 text-white/50">{site.contact.addressNote}</p>
+            {site.contact.poBox && <p className="pt-2 text-white/50">{site.contact.poBox}</p>}
           </address>
         </div>
 
@@ -48,20 +50,15 @@ export default function Footer({ site }) {
           <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">Get in touch</h4>
           <ul className="mt-4 space-y-2.5 text-sm">
             <li>
-              <a href={`mailto:${site.contact.email}`} className="hover:text-white">
+              <a href={`mailto:${site.contact.email}`} className="break-all hover:text-white">
                 {site.contact.email}
               </a>
             </li>
-            <li>
-              <a href={`tel:${tel}`} className="hover:text-white">{site.contact.phone}</a>
-            </li>
-            {site.contact.phoneAlt && (
-              <li>
-                <a href={`tel:${site.contact.phoneAlt.replace(/\s+/g, '')}`} className="hover:text-white">
-                  {site.contact.phoneAlt}
-                </a>
+            {phones.map((phone) => (
+              <li key={phone}>
+                <a href={telHref(phone)} className="hover:text-white">{phone}</a>
               </li>
-            )}
+            ))}
           </ul>
         </div>
       </div>
