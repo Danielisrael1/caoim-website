@@ -20,6 +20,17 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'homeWelcome',
+      title: 'Home "Get to know us" welcome',
+      type: 'object',
+      fields: [
+        { name: 'eyebrow', type: 'string', title: 'Eyebrow label' },
+        { name: 'name', type: 'string', title: 'Name' },
+        { name: 'role', type: 'string', title: 'Role' },
+        { name: 'bio', type: 'array', of: [{ type: 'text', rows: 3 }], title: 'Bio paragraphs' },
+      ],
+    }),
+    defineField({
       name: 'contact',
       title: 'Contact',
       type: 'object',
@@ -90,6 +101,23 @@ export default defineType({
         { name: 'story', type: 'array', of: [{ type: 'text', rows: 3 }], title: 'Story paragraphs' },
         { name: 'mission', type: 'text', rows: 3 },
         { name: 'vision', type: 'text', rows: 3 },
+        {
+          name: 'history',
+          title: 'History timeline',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                { name: 'year', type: 'string', title: 'Year / label' },
+                { name: 'label', type: 'string', title: 'Sub-label (e.g. exact date)' },
+                { name: 'title', type: 'string' },
+                { name: 'body', type: 'text', rows: 3 },
+              ],
+            },
+          ],
+        },
+        { name: 'historyClosing', title: 'History closing line', type: 'text', rows: 3 },
       ],
     }),
     defineField({

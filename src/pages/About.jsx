@@ -105,44 +105,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* What we believe */}
-      <section className="container-page py-20 md:py-28">
-        <SectionHeading
-          eyebrow="What we believe"
-          title="The faith we hold"
-          intro="We stand with the historic Christian church on these core truths."
-        />
-        <div className="mt-12 grid gap-px overflow-hidden border border-black/10 bg-black/10 sm:grid-cols-2 lg:grid-cols-4">
-          {site.beliefs.map((b, i) => (
-            <Reveal key={b.title} delay={(i % 4) * 70} className="bg-white p-6">
-              <h3 className="font-bold text-ink">{b.title}</h3>
-              <p className="mt-2 text-sm text-black/65">{b.body}</p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Isaiah 61 marks */}
-      <section className="bg-brand py-20 text-white md:py-28">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="Our calling"
-            title="Six marks of Isaiah 61"
-            intro="These six phrases from the prophet shape everything we do."
-            tone="light"
-          />
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {site.values.map((v, i) => (
-              <Reveal key={v.title} delay={(i % 3) * 90} className="border-t-2 border-gold pt-5">
-                <p className="text-sm font-semibold text-gold">{v.ref}</p>
-                <h3 className="mt-1 text-lg font-bold">{v.title}</h3>
-                <p className="mt-2 text-sm text-white/75">{v.body}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Leadership */}
       <section className="container-page py-20 md:py-28">
         <SectionHeading
@@ -166,6 +128,42 @@ export default function About() {
           ))}
         </div>
       </section>
+
+      {/* History */}
+      {Array.isArray(site.about.history) && site.about.history.length > 0 && (
+        <section className="bg-brand py-20 text-white md:py-28">
+          <div className="container-page">
+            <SectionHeading
+              eyebrow="Our history"
+              title="How we got here"
+              intro="From a rented room in Maya to a growing family of churches — a story of God’s faithfulness."
+              tone="light"
+            />
+
+            <div className="mt-14 space-y-10 border-l-2 border-white/20 pl-8">
+              {site.about.history.map((m, i) => (
+                <Reveal key={m.title} delay={i * 90} className="relative">
+                  <span className="absolute -left-[2.375rem] top-1.5 h-3 w-3 rounded-full bg-gold ring-4 ring-brand" />
+                  <p className="eyebrow text-gold">
+                    {m.year}
+                    {m.label ? ` · ${m.label}` : ''}
+                  </p>
+                  <h3 className="mt-1 text-xl font-bold">{m.title}</h3>
+                  <p className="mt-2 max-w-2xl text-white/75">{m.body}</p>
+                </Reveal>
+              ))}
+            </div>
+
+            {site.about.historyClosing && (
+              <Reveal delay={site.about.history.length * 90} className="mt-14 border-t border-white/15 pt-10">
+                <blockquote className="max-w-3xl text-lg italic text-white/85">
+                  “{site.about.historyClosing}”
+                </blockquote>
+              </Reveal>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Visit us */}
       <section id="visit" className="bg-paper py-20 md:py-28">

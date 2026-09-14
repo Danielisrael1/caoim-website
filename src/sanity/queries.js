@@ -3,7 +3,7 @@
 
 export const CONTENT_QUERY = /* groq */ `{
   "settings": *[_type == "siteSettings"][0]{
-    name, shortName, campus, tagline, taglineRef, hero,
+    name, shortName, campus, tagline, taglineRef, hero, homeWelcome,
     contact, social, youtube, serviceTimes, about, values, beliefs,
     "giving": giving{ intro, accountName, scripture, mobileMoney, inPerson, "poster": poster.asset->url },
     "leadPastors": leadPastors{ names, role, bio, "photo": photo.asset->url }

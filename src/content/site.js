@@ -29,6 +29,18 @@ const site = {
       '…because the Lord has anointed me to proclaim good news to the poor.',
   },
 
+  // The "Get to know us" band on the Home page — a personal welcome from the
+  // lead pastor, paired with his photo.
+  homeWelcome: {
+    eyebrow: 'Meet our pastor',
+    name: 'Pr. Robert Tamale',
+    role: 'Lead Pastor',
+    bio: [
+      'Pr. Robert Tamale is the Lead Pastor of Christ the Alpha & Omega International Ministries, shepherding our church family in Maya with the Word of God and a heart for people.',
+      'Together with his wife Justine, he leads CAOIM in its mission to proclaim good news to the poor, disciple believers, and raise a generation who carry the hope of Jesus to their world. Whoever you are, he would love to welcome you home.',
+    ],
+  },
+
   contact: {
     phones: ['0393 256 329', '0705 555 177', '0200 908 885'],
     email: 'christthealphaandomegaint@gmail.com',
@@ -76,8 +88,43 @@ const site = {
       'To proclaim good news to the poor, heal the brokenhearted, and set the captives free — making disciples of Jesus in Maya and beyond.',
     vision:
       'To raise oaks of righteousness — a planting of the Lord for the display of His splendour (Isaiah 61:3): restored people who rebuild ruined places and carry hope to their generation.',
+
+    // Our history — shown on the About page as a timeline.
+    history: [
+      {
+        year: '2012',
+        label: '13 January',
+        title: 'A vision is born',
+        body: 'A vision long carried was birthed in what was then the small village of Maya. Our ministry started humbly in a rented space, holding only a single service on Sundays.',
+      },
+      {
+        year: '2014',
+        label: 'September',
+        title: 'Our first home',
+        body: 'Within just two years, the Lord blessed us with a piece of land right next to the main road. A modest structure was raised and officially opened to the community.',
+      },
+      {
+        year: '2019',
+        title: 'Holy ground, secured',
+        body: 'We officially received the land title for this ground, and held our very first Thanksgiving service that year — celebrating all the Lord had granted us.',
+      },
+      {
+        year: 'Since',
+        title: 'Room to grow',
+        body: 'A season of rapid expansion followed. We moved our administration block, built a dedicated Children’s Church for our little ones, and expanded the main sanctuary to host over 700 worshippers a service.',
+      },
+      {
+        year: 'Today',
+        title: 'New territories',
+        body: 'The Lord’s work did not stop at these walls. He has expanded His church to new territories, birthing branches in Kayabwe and, most recently, in Mpambire.',
+      },
+    ],
+    historyClosing:
+      'For these milestones and countless others, we, the family of Christ the Alpha and Omega Churches, have endless reasons to give thanks. We shall always enter His gates with thanksgiving and praise His holy name, now and forevermore.',
   },
 
+  // Kept for future use — no longer rendered on the About page (replaced by
+  // the History section), but the data stays valid if you want it back.
   // The six marks of our calling, drawn straight from Isaiah 61.
   values: [
     {
@@ -112,7 +159,8 @@ const site = {
     },
   ],
 
-  // TODO: review this statement against your own doctrine before publishing.
+  // Kept for future use — no longer rendered on the About page (replaced by
+  // the History section). TODO: review against your own doctrine if reused.
   beliefs: [
     { title: 'The Bible', body: 'The Scriptures are the inspired, infallible Word of God and our final authority for faith and life.' },
     { title: 'One God', body: 'There is one God, eternally existing in three persons: Father, Son and Holy Spirit.' },

@@ -27,22 +27,22 @@ export default function Home() {
       <Hero site={site} />
       <Marquee items={['Welcome home', 'Christ the Alpha & Omega', `${site.campus} · Uganda`]} />
 
-      {/* Get to know us */}
+      {/* Get to know us — a welcome from the lead pastor */}
       <FeatureRow
-        image="/media/worship-family.jpg"
-        imageAlt="A family worshipping together at CAOIM"
+        image="/media/pastor-robert.jpg"
+        imageAlt={`${site.homeWelcome.name}, ${site.homeWelcome.role} of CAOIM`}
         imageSide="left"
-        eyebrow="Get to know us"
-        title="You belong here"
+        eyebrow={site.homeWelcome.eyebrow}
+        title={site.homeWelcome.name}
         cta={{ to: '/about', label: 'Learn more' }}
         secondaryCta={{ href: site.youtube.channelUrl, external: true, label: 'Watch a service' }}
       >
-        <p>{site.about.intro}</p>
-        <p className="text-base">
-          Whether you are exploring faith for the first time or looking for a church to call home,
-          come as you are. You will find friendly people, honest teaching from the Bible, and space
-          to belong.
+        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-brand">
+          {site.homeWelcome.role}
         </p>
+        {site.homeWelcome.bio.map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
       </FeatureRow>
 
       {/* This week's event */}
