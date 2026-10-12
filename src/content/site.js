@@ -179,14 +179,13 @@ const site = {
     photo: '/media/lead-pastors.jpg',
     bio: [
       'Pr. Robert Tamale and his wife Justine lead Christ the Alpha & Omega International Ministries, giving oversight to the church’s teaching, vision and pastoral care.',
-      'The vision God gave Pr. Robert was birthed in January 2012 in what was then the small village of Maya — a single Sunday service in a rented room. Under his leadership the church has grown into a sanctuary that seats over 700 worshippers a service, with branches planted in Kayabwe and Mpambire.',
+      'The vision God gave Pr. Robert was birthed in January 2012 in what was then the small village of Maya — a single Sunday service in a rented room. Under his leadership the church has grown into a settled home of its own, with branches planted in Kayabwe and Mpambire.',
       'Pr. Robert is also part of the Young Pastors Fellowship in Uganda, standing with fellow ministers of his generation for mutual encouragement, accountability and the strengthening of the local church.',
       'Their heart is to see lives restored through the gospel and a new generation raised as “oaks of righteousness, a planting of the Lord for the display of his splendour” (Isaiah 61:3).',
     ],
     // Small stat strip shown beside the bio on the About page.
     highlights: [
       { value: '2012', label: 'Founded the ministry in Maya' },
-      { value: '700+', label: 'Worshippers each service' },
       { value: '2', label: 'Branches planted' },
     ],
     // Pr. Robert at the Young Pastors Fellowship camp.

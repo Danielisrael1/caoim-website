@@ -55,7 +55,11 @@ function LeadPastors({ data }) {
           </div>
 
           {highlights.length > 0 && (
-            <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-black/10 pt-6">
+            <dl
+              className={`mt-8 grid gap-4 border-t border-black/10 pt-6 ${
+                highlights.length >= 3 ? 'grid-cols-3' : 'grid-cols-2'
+              }`}
+            >
               {highlights.map((h) => (
                 <div key={h.label}>
                   <dt className="text-2xl font-extrabold text-brand sm:text-3xl">{h.value}</dt>
