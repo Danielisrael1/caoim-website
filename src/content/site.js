@@ -285,7 +285,7 @@ const site = {
       slug: 'evangelism',
       name: 'Evangelism & Outreach',
       audience: 'The whole church',
-      image: '/media/crusade.jpg',
+      image: '/media/crusade-2.jpg',
       summary:
         'Taking the gospel beyond our walls. We host open‑air crusades in Maya and the communities around us — preaching good news to the poor, praying for the sick, and welcoming people into the family of God.',
       meets: 'Crusades held through the year',
@@ -296,7 +296,7 @@ const site = {
       ],
       gallery: [
         '/media/crusade-4.jpg',
-        '/media/crusade-2.jpg',
+        '/media/crusade.jpg',
         '/media/crusade-6.jpg',
         '/media/crusade-3.jpg',
         '/media/crusade-5.jpg',
