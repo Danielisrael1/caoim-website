@@ -5,6 +5,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Hide the scrollbar (Firefox + old Edge/IE) while keeping scroll. */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  /* Hide the scrollbar (WebKit: Chrome, Safari, new Edge). */
+  html::-webkit-scrollbar {
+    display: none;
   }
 
   body {

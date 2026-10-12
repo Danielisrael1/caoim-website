@@ -72,13 +72,6 @@ export default function Hero({ site }) {
           </Button>
         </div>
       </div>
-
-      {/* Scroll cue */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center">
-        <span className="flex h-9 w-5 items-start justify-center rounded-full border border-white/40 p-1">
-          <span className="h-2 w-1 animate-bounce rounded-full bg-white/70" />
-        </span>
-      </div>
     </section>
   )
 }
