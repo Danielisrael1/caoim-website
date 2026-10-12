@@ -120,23 +120,27 @@ export function buildChurchJsonLd(site) {
 
 /** One Event schema per upcoming event, for the Events page. */
 export function buildEventsJsonLd(site, events = []) {
-  return events.map((e) => {
-    const time = eventStartTime24(e.time || '')
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'Event',
-      name: e.title,
-      description: e.summary || e.theme || e.title,
-      startDate: time ? `${e.date}T${time}` : e.date,
-      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-      eventStatus: 'https://schema.org/EventScheduled',
-      location: {
-        '@type': 'Place',
-        name: e.location || site.name,
-        address: churchAddress(site),
-      },
-      image: [absoluteUrl(site.siteUrl, e.poster || '/media/hero-poster.jpg')],
-      organizer: { '@type': 'Organization', name: site.name, url: absoluteUrl(site.siteUrl) },
-    }
-  })
+  // schema.org/Event requires startDate, so events without a firm date (e.g.
+  // "a full week every January") are left out rather than emitted invalid.
+  return events
+    .filter((e) => e.date)
+    .map((e) => {
+      const time = eventStartTime24(e.time || '')
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Event',
+        name: e.title,
+        description: e.summary || e.theme || e.title,
+        startDate: time ? `${e.date}T${time}` : e.date,
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        eventStatus: 'https://schema.org/EventScheduled',
+        location: {
+          '@type': 'Place',
+          name: e.location || site.name,
+          address: churchAddress(site),
+        },
+        image: [absoluteUrl(site.siteUrl, e.poster || '/media/hero-poster.jpg')],
+        organizer: { '@type': 'Organization', name: site.name, url: absoluteUrl(site.siteUrl) },
+      }
+    })
 }

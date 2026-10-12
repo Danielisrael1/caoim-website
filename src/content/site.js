@@ -323,15 +323,15 @@ const site = {
     {
       slug: 'believers-conference',
       title: 'Annual Believers Conference',
-      // Held every January. TODO: set `date` + `time` once this year's dates
-      // are confirmed, and add the poster to public/media.
-      dateNote: 'Every January',
-      recurring: 'Annual · January',
+      // Runs for a full week each January; the exact week is chosen each year.
+      // TODO: set `date` + `time` once this year's week is confirmed.
+      dateNote: 'A full week every January',
+      recurring: 'Annual · One week in January',
       location: 'CAOIM, Maya',
       poster: '/media/believers-conference.jpg',
       featured: true,
       summary:
-        'Our flagship gathering of the year. Every January the church family sets days apart for worship, deep teaching from the Word, and prayer — believers coming together to start the year in God’s presence.',
+        'Our flagship gathering of the year. Every January the church family sets apart a whole week for worship, deep teaching from the Word, and prayer — believers coming together to start the year in God’s presence.',
     },
     {
       slug: 'sunday-services',
