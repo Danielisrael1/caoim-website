@@ -179,8 +179,19 @@ const site = {
     photo: '/media/lead-pastors.jpg',
     bio: [
       'Pr. Robert Tamale and his wife Justine lead Christ the Alpha & Omega International Ministries, giving oversight to the church’s teaching, vision and pastoral care.',
+      'The vision God gave Pr. Robert was birthed in January 2012 in what was then the small village of Maya — a single Sunday service in a rented room. Under his leadership the church has grown into a sanctuary that seats over 700 worshippers a service, with branches planted in Kayabwe and Mpambire.',
+      'Pr. Robert is also part of the Young Pastors Fellowship in Uganda, standing with fellow ministers of his generation for mutual encouragement, accountability and the strengthening of the local church.',
       'Their heart is to see lives restored through the gospel and a new generation raised as “oaks of righteousness, a planting of the Lord for the display of his splendour” (Isaiah 61:3).',
     ],
+    // Small stat strip shown beside the bio on the About page.
+    highlights: [
+      { value: '2012', label: 'Founded the ministry in Maya' },
+      { value: '700+', label: 'Worshippers each service' },
+      { value: '2', label: 'Branches planted' },
+    ],
+    // Pr. Robert at the Young Pastors Fellowship camp.
+    galleryCaption: 'At the Young Pastors Fellowship camp',
+    gallery: ['/media/ypf-1.jpg', '/media/ypf-2.jpg'],
   },
 
   // TODO: confirm the bios below with the leaders themselves.
@@ -270,6 +281,27 @@ const site = {
         'Mentoring that connects generations of women.',
       ],
     },
+    {
+      slug: 'evangelism',
+      name: 'Evangelism & Outreach',
+      audience: 'The whole church',
+      image: '/media/crusade.jpg',
+      summary:
+        'Taking the gospel beyond our walls. We host open‑air crusades in Maya and the communities around us — preaching good news to the poor, praying for the sick, and welcoming people into the family of God.',
+      meets: 'Crusades held through the year',
+      details: [
+        'Miracle and gospel crusades, with worship, preaching and prayer for the sick.',
+        'Door‑to‑door outreach and follow‑up that connects new believers to a church home.',
+        'Led by Pr. Teo Kisakye, our evangelism leader.',
+      ],
+      gallery: [
+        '/media/crusade-4.jpg',
+        '/media/crusade-2.jpg',
+        '/media/crusade-6.jpg',
+        '/media/crusade-3.jpg',
+        '/media/crusade-5.jpg',
+      ],
+    },
   ],
 
   // TODO: keep this list current. Dates are ISO (YYYY-MM-DD).
@@ -283,14 +315,29 @@ const site = {
       location: 'CAOIM, Maya (before Stabex petrol station)',
       speakers: 'Host: Pr. Robert Tamale · Guest preacher: Ap. Denis Musoke',
       poster: '/media/poster-youth-conference.jpg',
-      featured: true,
+      // NOTE: this date has passed, so it no longer shows on the site. Update
+      // the date (and poster) when the next Youth Conference is scheduled.
       summary:
         'A day set apart for the next generation — worship, the Word, and a fresh encounter with Jesus. Bring a friend.',
     },
     {
+      slug: 'believers-conference',
+      title: 'Annual Believers Conference',
+      // Held every January. TODO: set `date` + `time` once this year's dates
+      // are confirmed, and add the poster to public/media.
+      dateNote: 'Every January',
+      recurring: 'Annual · January',
+      location: 'CAOIM, Maya',
+      poster: '/media/believers-conference.jpg',
+      featured: true,
+      summary:
+        'Our flagship gathering of the year. Every January the church family sets days apart for worship, deep teaching from the Word, and prayer — believers coming together to start the year in God’s presence.',
+    },
+    {
       slug: 'sunday-services',
       title: 'Sunday Services',
-      date: '2026-09-13',
+      // `repeatWeekday` keeps this permanently current (0 = Sunday).
+      repeatWeekday: 0,
       time: '7:00 AM & 9:00 AM',
       location: 'CAOIM, Maya + YouTube Live',
       recurring: 'Every Sunday',
@@ -300,7 +347,7 @@ const site = {
     {
       slug: 'deliverance-service',
       title: 'Deliverance Service',
-      date: '2026-09-09',
+      repeatWeekday: 3, // Wednesday
       time: '6:00 – 9:00 PM',
       location: 'CAOIM, Maya',
       recurring: 'Every Wednesday',

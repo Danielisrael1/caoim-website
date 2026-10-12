@@ -52,6 +52,31 @@ export default function Ministries() {
               </p>
             )}
           </FeatureRow>
+
+          {/* Optional photo strip under a ministry (e.g. crusade photos). */}
+          {Array.isArray(m.gallery) && m.gallery.length > 0 && (
+            <section className={i % 2 === 0 ? 'bg-white' : 'bg-paper'}>
+              <div className="container-page pb-16 md:pb-24">
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {m.gallery.map((src, j) => (
+                    <Reveal
+                      key={src}
+                      variant="zoom"
+                      delay={(j % 3) * 90}
+                      className="group aspect-[4/3] overflow-hidden"
+                    >
+                      <img
+                        src={src}
+                        alt={`${m.name} — photo ${j + 1}`}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                      />
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
         </div>
       ))}
 

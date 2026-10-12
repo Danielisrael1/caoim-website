@@ -37,15 +37,46 @@ export function intlPhone(phone = '') {
   return telHref(phone).replace(/^tel:/, '')
 }
 
-/** Sort by date ascending; keep only events from today onward. */
+/** ISO date of the next given weekday (0 = Sunday … 6 = Saturday); today counts. */
+function nextWeekday(weekday) {
+  const d = new Date()
+  d.setHours(0, 0, 0, 0)
+  d.setDate(d.getDate() + ((weekday - d.getDay() + 7) % 7))
+  const pad = (n) => String(n).padStart(2, '0')
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
+}
+
+/**
+ * Upcoming events, soonest first.
+ *
+ * - Events with `repeatWeekday` (0–6) get their date computed from today, so
+ *   the weekly services never go stale.
+ * - Events with no date at all (e.g. "dates announced through the year") are
+ *   kept and sorted last.
+ * - One-off events in the past drop off automatically.
+ */
 export function upcomingEvents(events = []) {
   const today = new Date()
   today.setHours(0, 0, 0, 0)
   return [...events]
+    .map((e) => (typeof e.repeatWeekday === 'number' ? { ...e, date: nextWeekday(e.repeatWeekday) } : e))
     .filter((e) => {
       if (!e.date) return true
       const d = new Date(`${e.date}T00:00:00`)
       return Number.isNaN(d.getTime()) || d >= today
     })
-    .sort((a, b) => String(a.date).localeCompare(String(b.date)))
+    .sort((a, b) => {
+      if (!a.date) return 1
+      if (!b.date) return -1
+      return String(a.date).localeCompare(String(b.date))
+    })
+}
+
+/** Best human-readable "when" for an event, dated or not. */
+export function eventWhen(event = {}) {
+  if (event.date) {
+    const day = formatEventDate(event.date)
+    return event.time ? `${day} · ${event.time}` : day
+  }
+  return event.dateNote || event.recurring || ''
 }

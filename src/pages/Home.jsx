@@ -10,7 +10,7 @@ import Reveal from '../components/Reveal.jsx'
 import ServiceTimes from '../components/ServiceTimes.jsx'
 import MapEmbed from '../components/MapEmbed.jsx'
 import YouTubeFacade from '../components/YouTubeFacade.jsx'
-import { formatEventDate, upcomingEvents } from '../lib/format.js'
+import { eventWhen, upcomingEvents } from '../lib/format.js'
 
 export default function Home() {
   const site = useSite()
@@ -58,8 +58,7 @@ export default function Home() {
         >
           <p>{featured.summary}</p>
           <p className="text-base font-semibold text-ink">
-            {formatEventDate(featured.date)}
-            {featured.time ? ` · ${featured.time}` : ''}
+            {eventWhen(featured)}
             {featured.location ? ` · ${featured.location}` : ''}
           </p>
         </FeatureRow>

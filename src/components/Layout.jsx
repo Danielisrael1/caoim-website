@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom'
 import Header from './Header.jsx'
 import Footer from './Footer.jsx'
+import ScrollProgress from './ScrollProgress.jsx'
 import Seo from './Seo.jsx'
 import { useSite } from '../content/ContentContext.jsx'
 import { buildChurchJsonLd } from '../lib/seo.js'
@@ -15,6 +16,7 @@ export default function Layout({ children }) {
           the Church structured data. Each page adds its own <Seo> for
           title/description on top of this. */}
       <Seo jsonLd={buildChurchJsonLd(site)} jsonLdId="ld-json-church" />
+      <ScrollProgress />
       <Header site={site} />
       {/* Header is fixed. The home hero sits behind it; every other page needs
           to start below it. */}

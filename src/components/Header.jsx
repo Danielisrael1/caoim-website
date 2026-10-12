@@ -63,7 +63,7 @@ export default function Header({ site }) {
               to={item.to}
               end={item.end}
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${
+                `nav-link text-sm font-medium transition-colors ${
                   overHero
                     ? isActive
                       ? 'text-white'
@@ -79,7 +79,7 @@ export default function Header({ site }) {
           ))}
           <Link
             to="/give"
-            className="rounded-full bg-gold px-6 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-gold-dark"
+            className="rounded-full bg-gold px-6 py-2.5 text-sm font-semibold text-ink transition-[background-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/30 motion-reduce:transform-none"
           >
             Give
           </Link>

@@ -2,11 +2,15 @@ import { Link } from 'react-router-dom'
 import { IconArrowRight } from './icons.jsx'
 
 const base =
-  'group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold leading-none transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
+  'group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold leading-none ' +
+  'transition-[background-color,color,border-color,transform,box-shadow] duration-200 ease-out ' +
+  'hover:-translate-y-0.5 active:translate-y-0 active:duration-75 ' +
+  'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ' +
+  'motion-reduce:transform-none motion-reduce:transition-colors'
 
 const variants = {
-  primary: 'bg-brand text-white hover:bg-brand-dark focus-visible:ring-brand',
-  gold: 'bg-gold text-ink hover:bg-gold-dark focus-visible:ring-gold',
+  primary: 'bg-brand text-white hover:bg-brand-dark hover:shadow-lg hover:shadow-brand/25 focus-visible:ring-brand',
+  gold: 'bg-gold text-ink hover:bg-gold-dark hover:shadow-lg hover:shadow-gold/30 focus-visible:ring-gold',
   outlineLight:
     'border-2 border-white text-white hover:bg-white hover:text-ink focus-visible:ring-white',
   outlineDark:

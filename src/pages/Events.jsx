@@ -6,7 +6,7 @@ import EventCard from '../components/EventCard.jsx'
 import ServiceTimes from '../components/ServiceTimes.jsx'
 import Button from '../components/Button.jsx'
 import Reveal from '../components/Reveal.jsx'
-import { formatEventDate, upcomingEvents } from '../lib/format.js'
+import { eventWhen, upcomingEvents } from '../lib/format.js'
 import { buildEventsJsonLd } from '../lib/seo.js'
 
 export default function Events() {
@@ -52,8 +52,7 @@ export default function Events() {
               <dl className="mt-5 space-y-1.5 text-black/70">
                 <p>
                   <span className="font-semibold text-ink">When: </span>
-                  {formatEventDate(featured.date)}
-                  {featured.time ? ` · ${featured.time}` : ''}
+                  {eventWhen(featured)}
                 </p>
                 <p>
                   <span className="font-semibold text-ink">Where: </span>

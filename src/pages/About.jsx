@@ -31,25 +31,67 @@ function LeaderCard({ leader }) {
 }
 
 function LeadPastors({ data }) {
+  const highlights = Array.isArray(data.highlights) ? data.highlights : []
+  const gallery = Array.isArray(data.gallery) ? data.gallery.filter(Boolean) : []
+
   return (
-    <div className="grid overflow-hidden border border-black/10 bg-white md:grid-cols-2">
-      <div className="aspect-[4/3] bg-paper md:aspect-auto">
-        <img
-          src={data.photo}
-          alt={data.names}
-          className="h-full w-full object-cover"
-          loading="lazy"
-        />
-      </div>
-      <div className="flex flex-col justify-center p-8 md:p-12">
-        <p className="eyebrow">{data.role}</p>
-        <h3 className="mt-3 text-2xl font-bold text-ink sm:text-3xl">{data.names}</h3>
-        <div className="mt-4 space-y-3 text-black/65">
-          {(Array.isArray(data.bio) ? data.bio : [data.bio]).map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
+    <div className="overflow-hidden border border-black/10 bg-white">
+      <div className="grid md:grid-cols-2">
+        <div className="group aspect-[4/3] overflow-hidden bg-paper md:aspect-auto">
+          <img
+            src={data.photo}
+            alt={data.names}
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex flex-col justify-center p-8 md:p-12">
+          <p className="eyebrow">{data.role}</p>
+          <h3 className="mt-3 text-2xl font-bold text-ink sm:text-3xl">{data.names}</h3>
+          <div className="mt-4 space-y-3 text-black/65">
+            {(Array.isArray(data.bio) ? data.bio : [data.bio]).map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+
+          {highlights.length > 0 && (
+            <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-black/10 pt-6">
+              {highlights.map((h) => (
+                <div key={h.label}>
+                  <dt className="text-2xl font-extrabold text-brand sm:text-3xl">{h.value}</dt>
+                  <dd className="mt-1 text-xs leading-snug text-black/55">{h.label}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </div>
       </div>
+
+      {gallery.length > 0 && (
+        <div className="border-t border-black/10">
+          {data.galleryCaption && (
+            <p className="px-8 pt-6 text-xs font-semibold uppercase tracking-[0.22em] text-brand md:px-12">
+              {data.galleryCaption}
+            </p>
+          )}
+          <div
+            className={`mt-4 grid gap-px bg-black/10 ${
+              gallery.length > 2 ? 'sm:grid-cols-3' : 'sm:grid-cols-2'
+            }`}
+          >
+            {gallery.map((src, i) => (
+              <div key={src} className="group aspect-[3/2] overflow-hidden bg-paper">
+                <img
+                  src={src}
+                  alt={`${data.names} — ${data.galleryCaption || 'photo'} ${i + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

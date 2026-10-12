@@ -41,6 +41,29 @@
     @apply text-xs font-semibold uppercase tracking-[0.22em] text-brand;
   }
 
+  /* Cards: a restrained lift + shadow on hover. */
+  .hover-lift {
+    @apply transition-[transform,box-shadow,border-color] duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-xl shadow-black/5;
+  }
+
+  /* Nav links: underline that grows from the left on hover/active. */
+  .nav-link {
+    @apply relative;
+  }
+
+  .nav-link::after {
+    @apply absolute left-0 bottom-[-6px] h-[2px] w-full origin-left scale-x-0 bg-current transition-transform duration-300 ease-out content-[''];
+  }
+
+  .nav-link:hover::after,
+  .nav-link[aria-current='page']::after {
+    @apply scale-x-100;
+  }
+
   .rich-text p {
     @apply mb-4 leading-relaxed text-black/70;
   }
@@ -92,5 +115,14 @@
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+
+  .hover-lift,
+  .nav-link::after {
+    transition: none !important;
+  }
+
+  .hover-lift:hover {
+    transform: none !important;
   }
 }
