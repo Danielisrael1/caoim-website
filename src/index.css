@@ -5,6 +5,9 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Keep the fixed header from covering whatever is scrolled to — anchors
+       AND keyboard focus (WCAG 2.2 "Focus Not Obscured"). */
+    scroll-padding-top: 5.5rem;
     /* Hide the scrollbar (Firefox + old Edge/IE) while keeping scroll. */
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -26,9 +29,13 @@
     @apply font-semibold tracking-tightest;
   }
 
-  /* Keep sticky-header clearance for in-page anchors. */
-  :target {
-    scroll-margin-top: 5.5rem;
+  /* Skip link: hidden until focused, then pinned top-left. */
+  .skip-link {
+    @apply sr-only;
+  }
+
+  .skip-link:focus {
+    @apply not-sr-only fixed left-4 top-4 z-[60] rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white shadow-lg;
   }
 }
 

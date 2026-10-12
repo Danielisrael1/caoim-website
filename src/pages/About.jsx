@@ -237,9 +237,9 @@ export default function About() {
                   {site.contact.addressLines.map((line) => (
                     <span key={line} className="block">{line}</span>
                   ))}
-                  <span className="mt-1 block text-black/50">{site.contact.addressNote}</span>
+                  <span className="mt-1 block text-black/60">{site.contact.addressNote}</span>
                   {site.contact.poBox && (
-                    <span className="mt-1 block text-black/50">{site.contact.poBox}</span>
+                    <span className="mt-1 block text-black/60">{site.contact.poBox}</span>
                   )}
                 </span>
               </li>
@@ -248,15 +248,25 @@ export default function About() {
                 <span className="flex flex-wrap gap-x-2 gap-y-1">
                   {(site.contact.phones || []).map((phone, i) => (
                     <span key={phone}>
-                      <a href={telHref(phone)} className="hover:text-brand">{phone}</a>
-                      {i < site.contact.phones.length - 1 && <span className="text-black/30"> ·</span>}
+                      <a href={telHref(phone)} className="inline-block py-0.5 hover:text-brand">
+                        {phone}
+                      </a>
+                      {i < site.contact.phones.length - 1 && (
+                        <span aria-hidden="true" className="text-black/60">
+                          {' '}
+                          ·
+                        </span>
+                      )}
                     </span>
                   ))}
                 </span>
               </li>
               <li className="flex gap-2">
                 <IconMail className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
-                <a href={`mailto:${site.contact.email}`} className="break-all hover:text-brand">
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="inline-block break-all py-0.5 hover:text-brand"
+                >
                   {site.contact.email}
                 </a>
               </li>

@@ -16,11 +16,16 @@ export default function Layout({ children }) {
           the Church structured data. Each page adds its own <Seo> for
           title/description on top of this. */}
       <Seo jsonLd={buildChurchJsonLd(site)} jsonLdId="ld-json-church" />
+      <a href="#main" className="skip-link">
+        Skip to main content
+      </a>
       <ScrollProgress />
       <Header site={site} />
       {/* Header is fixed. The home hero sits behind it; every other page needs
           to start below it. */}
-      <main className={`flex-1 ${isHome ? '' : 'pt-16 md:pt-20'}`}>{children}</main>
+      <main id="main" className={`flex-1 ${isHome ? '' : 'pt-16 md:pt-20'}`}>
+        {children}
+      </main>
       <Footer site={site} />
     </div>
   )

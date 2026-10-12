@@ -91,7 +91,7 @@ export default function Give() {
           <blockquote className="mt-16 border-l-4 border-gold pl-5 text-lg text-black/70">
             “{g.scripture.text}”
             {g.scripture.ref && (
-              <cite className="mt-2 block text-sm font-semibold not-italic text-black/45">
+              <cite className="mt-2 block text-sm font-semibold not-italic text-black/60">
                 — {g.scripture.ref}
               </cite>
             )}

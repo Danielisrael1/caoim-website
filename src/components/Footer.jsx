@@ -22,13 +22,19 @@ export default function Footer({ site }) {
 
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">Explore</h4>
-          <ul className="mt-4 space-y-2.5 text-sm">
-            <li><Link to="/about" className="hover:text-white">About us</Link></li>
-            <li><Link to="/ministries" className="hover:text-white">Ministries</Link></li>
-            <li><Link to="/events" className="hover:text-white">Events</Link></li>
-            <li><Link to="/give" className="hover:text-white">Give</Link></li>
+          {/* py-1 keeps each link ≥24px tall (WCAG 2.2 target size). */}
+          <ul className="mt-4 space-y-1.5 text-sm">
+            <li><Link to="/about" className="inline-block py-1 hover:text-white">About us</Link></li>
+            <li><Link to="/ministries" className="inline-block py-1 hover:text-white">Ministries</Link></li>
+            <li><Link to="/events" className="inline-block py-1 hover:text-white">Events</Link></li>
+            <li><Link to="/give" className="inline-block py-1 hover:text-white">Give</Link></li>
             <li>
-              <a href={site.youtube.channelUrl} target="_blank" rel="noreferrer" className="hover:text-white">
+              <a
+                href={site.youtube.channelUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block py-1 hover:text-white"
+              >
                 Watch on YouTube
               </a>
             </li>
@@ -48,15 +54,20 @@ export default function Footer({ site }) {
 
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">Get in touch</h4>
-          <ul className="mt-4 space-y-2.5 text-sm">
+          <ul className="mt-4 space-y-1.5 text-sm">
             <li>
-              <a href={`mailto:${site.contact.email}`} className="break-all hover:text-white">
+              <a
+                href={`mailto:${site.contact.email}`}
+                className="inline-block break-all py-1 hover:text-white"
+              >
                 {site.contact.email}
               </a>
             </li>
             {phones.map((phone) => (
               <li key={phone}>
-                <a href={telHref(phone)} className="hover:text-white">{phone}</a>
+                <a href={telHref(phone)} className="inline-block py-1 hover:text-white">
+                  {phone}
+                </a>
               </li>
             ))}
           </ul>

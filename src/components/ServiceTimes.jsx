@@ -1,6 +1,6 @@
 export default function ServiceTimes({ times = [], className = '', tone = 'light' }) {
   const border = tone === 'light' ? 'border-black/10' : 'border-white/20'
-  const sub = tone === 'light' ? 'text-black/55' : 'text-white/60'
+  const sub = tone === 'light' ? 'text-black/55' : 'text-white/75'
 
   return (
     <ul className={`border-y ${border} divide-y ${border} ${className}`}>

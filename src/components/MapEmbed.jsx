@@ -24,7 +24,7 @@ export default function MapEmbed({ query, title = 'Map', addressLines = [], clas
           href={linkSrc}
           target="_blank"
           rel="noreferrer"
-          className="mt-1 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-gold hover:underline"
+          className="mt-1 inline-flex w-fit items-center gap-1.5 py-1 text-sm font-semibold text-gold hover:underline"
         >
           Open in Google Maps <IconArrowRight className="h-4 w-4" />
         </a>
