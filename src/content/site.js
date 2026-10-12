@@ -219,12 +219,13 @@ const site = {
       bio: 'Pastors the youth, discipling the next generation to follow Jesus.',
       photo: '/media/pr-amos.jpg',
     },
-    {
-      name: 'Pr. Ampaire Jackson',
-      department: 'Leader of Intercession',
-      bio: 'Leads the intercession and prayer ministry of the church.',
-      photo: '', // TODO: photo to be provided
-    },
+    // Temporarily hidden until a photo is supplied — uncomment to restore.
+    // {
+    //   name: 'Pr. Ampaire Jackson',
+    //   department: 'Leader of Intercession',
+    //   bio: 'Leads the intercession and prayer ministry of the church.',
+    //   photo: '/media/pr-ampaire.jpg',
+    // },
   ],
 
   ministries: [

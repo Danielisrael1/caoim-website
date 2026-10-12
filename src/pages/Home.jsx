@@ -34,7 +34,7 @@ export default function Home() {
         imageSide="left"
         eyebrow={site.homeWelcome.eyebrow}
         title={site.homeWelcome.name}
-        cta={{ to: '/about', label: 'Learn more' }}
+        cta={{ to: '/about#lead-pastors', label: 'Learn more' }}
         secondaryCta={{ href: site.youtube.channelUrl, external: true, label: 'Watch a service' }}
       >
         <p className="text-sm font-semibold uppercase tracking-[0.15em] text-brand">

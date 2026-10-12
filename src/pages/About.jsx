@@ -152,7 +152,7 @@ export default function About() {
       </section>
 
       {/* Leadership */}
-      <section className="container-page py-20 md:py-28">
+      <section id="leadership" className="container-page py-20 md:py-28">
         <SectionHeading
           eyebrow="Leadership"
           title="Meet the team"
@@ -161,12 +161,20 @@ export default function About() {
         />
 
         {site.leadPastors && (
-          <Reveal variant="zoom" className="mt-14">
+          <Reveal variant="zoom" id="lead-pastors" className="mt-14">
             <LeadPastors data={site.leadPastors} />
           </Reveal>
         )}
 
-        <div className="mt-6 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Column count follows the roster size so the last row never sits
+            half-empty (4 leaders read better as one row of 4 than 3 + 1). */}
+        <div
+          className={`mt-6 grid items-start gap-6 sm:grid-cols-2 ${
+            site.leadership.length % 3 === 0 || site.leadership.length % 4 !== 0
+              ? 'lg:grid-cols-3'
+              : 'lg:grid-cols-4'
+          }`}
+        >
           {site.leadership.map((l, i) => (
             <Reveal key={`${l.name}-${i}`} delay={(i % 3) * 80} className="h-full">
               <LeaderCard leader={l} />
