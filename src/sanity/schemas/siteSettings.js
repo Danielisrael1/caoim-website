@@ -8,6 +8,12 @@ export default defineType({
     defineField({ name: 'name', title: 'Church name', type: 'string' }),
     defineField({ name: 'shortName', title: 'Short name / abbreviation', type: 'string' }),
     defineField({ name: 'campus', title: 'Campus / location name', type: 'string' }),
+    defineField({
+      name: 'legalNote',
+      title: 'Full legal name',
+      type: 'string',
+      description: 'Shown in the footer and copyright line',
+    }),
     defineField({ name: 'tagline', title: 'Tagline', type: 'text', rows: 3 }),
     defineField({ name: 'taglineRef', title: 'Tagline scripture reference', type: 'string' }),
     defineField({
@@ -90,6 +96,30 @@ export default defineType({
         { name: 'role', type: 'string', title: 'Role', initialValue: 'Lead Pastors' },
         { name: 'photo', type: 'image', title: 'Photo', options: { hotspot: true } },
         { name: 'bio', type: 'array', of: [{ type: 'text', rows: 3 }], title: 'Bio paragraphs' },
+        {
+          name: 'highlights',
+          title: 'Stat strip',
+          description: 'Small numbers shown beside the bio, e.g. 2012 / Founded the ministry',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                { name: 'value', type: 'string', title: 'Number / value' },
+                { name: 'label', type: 'string', title: 'Label' },
+              ],
+              preview: { select: { title: 'value', subtitle: 'label' } },
+            },
+          ],
+        },
+        { name: 'galleryCaption', type: 'string', title: 'Gallery caption' },
+        {
+          name: 'gallery',
+          title: 'Gallery photos',
+          type: 'array',
+          of: [{ type: 'image', options: { hotspot: true } }],
+          options: { layout: 'grid' },
+        },
       ],
     }),
     defineField({

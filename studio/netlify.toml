@@ -1,0 +1,21 @@
+# Deploys the Studio as its own Netlify site (e.g. admin.caoim.org).
+# In Netlify: New site from repo → branch `cms` → Base directory `studio`.
+# Set SANITY_STUDIO_PROJECT_ID and SANITY_STUDIO_DATASET in Site settings →
+# Environment variables.
+
+[build]
+  base = "studio"
+  command = "npm run build"
+  publish = "dist"
+
+# The Studio is a single-page app.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Keep the editor out of search results.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

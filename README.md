@@ -96,18 +96,29 @@ Pages / nav: **Home · About · Ministries · Events · Give**.
 
 ---
 
-## Sanity (optional, later)
+## Editing without code (CMS)
 
-See **[SANITY.md](./SANITY.md)**. Create a free project, copy the schemas from
-`src/sanity/schemas/`, then add a `.env`:
+See **[CMS.md](./CMS.md)** — the full setup and day-to-day guide.
+
+`studio/` is a Sanity Studio: a web page you log into to edit the site, add
+photos and schedule events, with no code and no deploys. Schemas live in
+`src/sanity/schemas/` and are shared by both the website and the Studio, so
+they can't drift apart.
+
+```bash
+cd studio && npm install && npm run dev    # http://localhost:3333
+npm run seed                               # imports the current site content + photos
+```
+
+The website reads published content when `.env` has:
 
 ```
 VITE_SANITY_PROJECT_ID=your_project_id
 VITE_SANITY_DATASET=production
 ```
 
-The site prefers published Sanity content when those are set and falls back to
-`src/content/site.js` otherwise.
+…and **falls back to `src/content/site.js`** whenever Sanity isn't configured
+or is unreachable, so the site never breaks.
 
 ---
 

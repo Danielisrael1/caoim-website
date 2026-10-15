@@ -1,0 +1,21 @@
+{
+  "name": "caoim-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Content editor (Sanity Studio) for the CAOIM website",
+  "type": "module",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "seed": "node scripts/seed.mjs"
+  },
+  "dependencies": {
+    "@sanity/client": "^6.22.1",
+    "@sanity/vision": "^6.19.0",
+    "react": "^19.2.2",
+    "react-dom": "^19.2.2",
+    "sanity": "^6.19.0",
+    "styled-components": "^6.1.15"
+  }
+}
