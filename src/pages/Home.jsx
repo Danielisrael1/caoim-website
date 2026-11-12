@@ -29,7 +29,7 @@ export default function Home() {
 
       {/* Get to know us — a welcome from the lead pastor */}
       <FeatureRow
-        image="/media/pastor-robert.jpg"
+        image={site.homeWelcome.photo || '/media/pastor-robert.jpg'}
         imageAlt={`${site.homeWelcome.name}, ${site.homeWelcome.role} of CAOIM`}
         imageSide="left"
         eyebrow={site.homeWelcome.eyebrow}

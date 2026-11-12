@@ -1,7 +1,8 @@
 /**
  * Local site content for CAOIM.
  *
- * This is the single source of truth until Sanity is connected (see SANITY.md).
+ * The site starts from this content. When the CAOIM admin is connected
+ * (VITE_SUPABASE_URL), what staff publish there replaces it; see README.md.
  * Anything marked  // TODO  is a placeholder — replace it with real details.
  */
 

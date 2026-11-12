@@ -6,8 +6,10 @@ Website for **Christ the Alpha & Omega International Ministries – Maya (CAOIM)
 site (`calvarymd.com` — a "The Church Co" template): Poppins type, `#003DA5`
 blue + `#FBC457` gold, full-screen video hero, alternating photo bands.
 
-Content is editable in a local data file now, and through **Sanity** (free
-headless CMS) once connected.
+Content is edited in the **CAOIM admin** (a separate app, `caoim-admin`, hosted
+on its own admin domain). The site reads what staff publish there, and falls
+back to `src/content/site.js` whenever the admin isn't connected or can't be
+reached.
 
 ---
 
@@ -26,7 +28,7 @@ Node 18+ (Node 22 recommended).
 
 ## Editing content
 
-Until Sanity is connected, everything is in **`src/content/site.js`**. Search the
+Until the admin is connected, everything is in **`src/content/site.js`**. Search the
 file for `TODO` — those are placeholders that still need real information:
 
 | Placeholder / to keep current | Notes |
@@ -62,8 +64,8 @@ src/
   content/
     site.js                  ← editable content (local source of truth)
     ContentContext.jsx       provides content to every page
-  hooks/useContent.js        local content, merges Sanity on top when configured
-  sanity/                    client, GROQ queries, Studio schemas  (see SANITY.md)
+  hooks/useContent.js        local content, merges the admin's content on top when configured
+  lib/cms.js                 one fetch to the admin database (no extra library)
   components/                Header, Footer, Hero, Marquee, FeatureRow, cards, icons
   pages/                     Home, About, Ministries, Events, Give, NotFound
   lib/format.js              date helpers
@@ -96,26 +98,35 @@ Pages / nav: **Home · About · Ministries · Events · Give**.
 
 ---
 
-## Sanity (optional, later)
+## Content from the CAOIM admin
 
-See **[SANITY.md](./SANITY.md)**. Create a free project, copy the schemas from
-`src/sanity/schemas/`, then add a `.env`:
+Staff edit the site in the CAOIM admin. To connect this site to it, set two
+variables (locally in `.env`, and in the Netlify/Vercel dashboard):
 
 ```
-VITE_SANITY_PROJECT_ID=your_project_id
-VITE_SANITY_DATASET=production
+VITE_SUPABASE_URL=https://your-project-ref.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_…
 ```
 
-The site prefers published Sanity content when those are set and falls back to
-`src/content/site.js` otherwise.
+Both come from the admin's Supabase project → Project Settings → API Keys. The
+publishable key is meant to be public: the database only lets it read published
+website content, never church records or finances.
+
+On each visit the site makes one request (`/rest/v1/rpc/site_content`) and puts
+the published content over the built-in defaults. Until the admin's import has
+been run, its settings are empty and the site keeps showing `site.js`. Once
+content exists, the admin's lists (events, leaders, ministries, programme) are
+used as they are, so hiding or deleting something there removes it here.
+
+`siteUrl` and the hero video stay in the code.
 
 ---
 
 ## Deploying (free)
 
 **Netlify** or **Vercel** — connect the repo; `netlify.toml` / `vercel.json`
-already handle SPA routing. Add the `VITE_SANITY_*` env vars in the host
-dashboard if you connect Sanity. Manual: upload `dist/` to any static host.
+already handle SPA routing. Add the `VITE_SUPABASE_*` env vars in the host
+dashboard to connect the admin. Manual: upload `dist/` to any static host.
 
 ---
 
